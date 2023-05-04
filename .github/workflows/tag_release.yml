@@ -49,7 +49,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{github.workspace}}/sonar-ios-plugin/target/*.jar
+          file: ${{github.workspace}}/lib/ecocode-sonar-ios-plugin-${{ github.ref_name }}.jar
           tag: ${{ github.ref_name }}
           #overwrite: true (use only if needs to publish 'replacable' snapshots
           file_glob: true

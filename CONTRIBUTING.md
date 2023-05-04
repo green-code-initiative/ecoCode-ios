@@ -16,7 +16,7 @@ The iOS plugin is split into 3 different modules:
 
 Swift file parser is build using the [ANTLR](https://www.antlr.org/) parser generator.
 
-The generated parser source files are located into `swift-lang/src/main/java/io/ecocode/ios/swift/antlr/generated`. those source files should not be edited manually. 
+The generated parser source files are located into `swift-lang/src/main/java/io/ecocode/ios/swift/antlr/generated`. Those source files should not be edited manually. 
 
 When necessary (in case of Swift language syntax upgrade for example), those source files should be re-generated with ANTLR.
 
