@@ -5,7 +5,9 @@ Mobile apps running on top of battery-limited devices are more than others conce
 
 ecoCode iOS is based on evolving catalogs of [best practices](https://github.com/cnumr/best-practices-mobile). A SonarQube plugin then implements these catalogs as rules for scanning your projects. To learn more, take a look at the [complete presentation](docs/resources/devfest-2022.pdf) (in french) or the [presentation in a nutshell](docs/resources/apidays-2022.pdf) (in english).
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![Build](https://github.com/green-code-initiative/ecoCode-ios/actions/workflows/build.yml/badge.svg)
+
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=green-code-initiative_ecoCode-ios&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=green-code-initiative_ecoCode-ios) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=green-code-initiative_ecoCode-ios&metric=coverage)](https://sonarcloud.io/summary/new_code?id=green-code-initiative_ecoCode-ios) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=green-code-initiative_ecoCode-ios&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=green-code-initiative_ecoCode-ios) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=green-code-initiative_ecoCode-ios&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=green-code-initiative_ecoCode-ios) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=green-code-initiative_ecoCode-ios&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=green-code-initiative_ecoCode-ios)
 
 🌿 SonarQube Plugin
 -------------------
