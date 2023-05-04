@@ -32,10 +32,17 @@ import java.util.List;
 public class RepositoryRuleParser {
 
     public List<RepositoryRule> parse(String resourceName) throws IOException {
+
+        // Appends starting / if not set
+        if (!resourceName.startsWith("/")) {
+            resourceName = "/" + resourceName;
+        }
+
         InputStream is =  getClass().getResourceAsStream(resourceName);
         if (is == null) {
             throw new IOException(String.format("JSON rule file not found in resources at %s", resourceName));
         }
+
         Reader reader = new InputStreamReader(is, StandardCharsets.UTF_8);
         List<RepositoryRule> repositoryRules = new ArrayList<>();
         JSONArray jsonRules = (JSONArray) JSONValue.parse(reader);

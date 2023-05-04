@@ -27,6 +27,6 @@ public final class Swift {
     public static final String REPOSITORY_KEY = "ecoCode-swift";
     public static final String PROFILE_PATH = "ecocode_swift_profile.json";
 
-    public static final String RULES_PATH = "/ecocode-swift-rules.json";
+    public static final String RULES_PATH = "ecocode-swift-rules.json";
 
 }
