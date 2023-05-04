@@ -54,6 +54,7 @@
         <sonar.coverage.exclusions>**/generated/**/*.*</sonar.coverage.exclusions>
 
         <sonarqube.version>9.4.0.54424</sonarqube.version>
+        <sonar-packaging.version>1.21.0.505</sonar-packaging.version>
         <sonar-plugin-api-impl.version>9.7.1.62043</sonar-plugin-api-impl.version>
         <sslr.version>1.21</sslr.version>
         <sonar.apacheCommons.version>2.6</sonar.apacheCommons.version>
