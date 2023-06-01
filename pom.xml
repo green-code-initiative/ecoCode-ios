@@ -57,7 +57,7 @@
         <sonar-packaging.version>1.21.0.505</sonar-packaging.version>
         <sonar-plugin-api-impl.version>9.7.1.62043</sonar-plugin-api-impl.version>
         <sslr.version>1.21</sslr.version>
-        <sonar.apacheCommons.version>2.6</sonar.apacheCommons.version>
+        <sonar.apacheCommons.version>[2.7,)</sonar.apacheCommons.version>
         <sonar.analyzerCommons.version>2.1.0.1111</sonar.analyzerCommons.version>
         <sonarApple.version>0.1.2</sonarApple.version>
         <antlr.version>4.10</antlr.version>
