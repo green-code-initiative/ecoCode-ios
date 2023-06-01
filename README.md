@@ -45,6 +45,9 @@ docker-compose up --build -d && docker ps
 
 The tests instance of SonarQube with the plugin will then be available at: [http://localhost:9000](http://localhost:9000). Default credentials are `admin`/`admin`
 
+### Test
+
+An iOS test project is available [here](https://github.com/green-code-initiative/ecoCode-mobile-ios-swift-test-project)/
 
 🤝 Partners
 ------------
@@ -59,11 +62,12 @@ The tests instance of SonarQube with the plugin will then be available at: [http
 🧩 Plugins version compatibility
 ------------------
 
-| Plugins Version | SonarQube version          |
-|-----------------|----------------------------|
-| 0.0.+           | SonarQube 8.9.+ LTS to 9.3 |
-| 0.1.+           | SonarQube 9.4.+ LTS to 9.9 |
-| 1.0.+           | SonarQube 9.4.+ LTS to 9.9 |
+| Plugins Version | SonarQube version           |
+|-----------------|-----------------------------|
+| 0.0.+           | SonarQube 8.9.+ LTS to 9.3  |
+| 0.1.+           | SonarQube 9.4.+ LTS to 9.9  |
+| 1.0.+           | SonarQube 9.4.+ LTS to 9.9  |
+| 1.1.+           | SonarQube 9.4.+ LTS to 10.0 |
 
 
 🛠️ Contributing
