@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Extracted iOS plugin from https://github.com/green-code-initiative/ecoCode-mobile to new repository (https://github.com/green-code-initiative/ecoCode-ios)
-
 ### Changed
+
+- Extracted iOS plugin from https://github.com/green-code-initiative/ecoCode-mobile to new repository (https://github.com/green-code-initiative/ecoCode-ios)
 
 ### Deleted

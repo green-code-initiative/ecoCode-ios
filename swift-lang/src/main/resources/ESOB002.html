@@ -5,13 +5,14 @@
     this level of accuracy isn't needed.
     Requesting higher accuracy than you need causes the system to power up additional hardware
     and waste power for unnecessary precision. You can specify a degree of accuracy by setting
-    the <code>CLLocationManager#desiredAccuracy<code> property.
+    the <code>CLLocationManager#desiredAccuracy</code> property.
     Also, setting the <code>CLLocationManager#activityType</code> property will let the system knows what type
     of location activity your app is performing and helps it determine
     the most appropriate time to perform location updates.
     Finally, if your app just needs a quick fix on the user’s location,
     it’s best to call the <code>CLLocationManager#requestLocation</code> method,
-    that will deliver a single location update.</p>
+    that will deliver a single location update.
+</p>
 <h2>Compliant Code Example</h2>
 <pre>
     let manager = CLLocationManager()
