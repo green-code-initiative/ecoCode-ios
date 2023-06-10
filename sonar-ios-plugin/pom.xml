@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.ecocode</groupId>
         <artifactId>ios-plugin</artifactId>
-        <version>1.1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>ecocode-sonar-ios-plugin</artifactId>
@@ -12,7 +12,7 @@
 
     <name>ecoCode iOS plugin</name>
     <description>Help the earth, adopt this green plugin for your applications</description>
-    <url>https://github.com/green-code-initiative/ecoCode-mobile/tree/main/ios-plugin</url>
+    <url>https://github.com/green-code-initiative/ecoCode-ios</url>
 
     <dependencies>
         <dependency>
