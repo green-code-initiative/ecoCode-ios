@@ -72,7 +72,7 @@ An iOS test project is available [here](https://github.com/green-code-initiative
 
 | Plugins Version | SonarQube version           |
 |-----------------|-----------------------------|
-| 1.0.+           | SonarQube 9.4.+ LTS to 10.0 |
+| 1.1.+           | SonarQube 9.4.+ LTS to 10.0 |
 
 🛠️ Contributing
 ------------------
