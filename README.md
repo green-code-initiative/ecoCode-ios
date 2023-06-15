@@ -19,7 +19,6 @@ ecoCode iOS SonarQube plugin is an "eco-responsibility" static code analyzer for
 
 Ready to use binaries are available [from GitHub](https://github.com/green-code-initiative/ecoCode-ios/releases).
 
-
 🚀 Quickstart
 -------------
 
@@ -32,7 +31,7 @@ Ready to use binaries are available [from GitHub](https://github.com/green-code-
 ### Compile
 
 ```bash
-mvn package
+./tool_compile.sh
 ```
 
 ### Run (with Docker)
@@ -40,7 +39,17 @@ mvn package
 **This implies to have a machine ready to run containerized applications.** Please refer to Docker documentation: https://www.docker.com/.
 
 ```bash
-docker-compose up --build -d && docker ps
+# build Jar files for application
+./tool_build.sh
+
+# clean docker environment
+./tool_docker-clean.sh
+
+# initialize docker environment
+./tool_docker-init.sh
+
+# display logs from docker environment
+./tool_docker-logs.sh
 ```
 
 The tests instance of SonarQube with the plugin will then be available at: [http://localhost:9000](http://localhost:9000). Default credentials are `admin`/`admin`
@@ -58,17 +67,12 @@ An iOS test project is available [here](https://github.com/green-code-initiative
 [![Solocal / PagesJaunes](docs/resources/logoSolocal.png)](https://www.pagesjaunes.fr)
 [![inside|app](docs/resources/logoInsideApp.jpg)](https://www.insideapp.fr/)
 
-
 🧩 Plugins version compatibility
 ------------------
 
 | Plugins Version | SonarQube version           |
 |-----------------|-----------------------------|
-| 0.0.+           | SonarQube 8.9.+ LTS to 9.3  |
-| 0.1.+           | SonarQube 9.4.+ LTS to 9.9  |
-| 1.0.+           | SonarQube 9.4.+ LTS to 9.9  |
 | 1.1.+           | SonarQube 9.4.+ LTS to 10.0 |
-
 
 🛠️ Contributing
 ------------------
@@ -76,4 +80,3 @@ An iOS test project is available [here](https://github.com/green-code-initiative
 If you want to contribute to the project, your help will be greatly appreciated.
 
 Start right away by reading [General contribution guide](https://github.com/green-code-initiative/ecoCode-common/blob/main/doc/CONTRIBUTING.md) and the [iOS specific contribution guide](https://github.com/green-code-initiative/ecoCode-ios/blob/main/CONTRIBUTING.md).
-
