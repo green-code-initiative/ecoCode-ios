@@ -9,9 +9,9 @@
 
     <name>ecoCode iOS plugin</name>
     <description>Help the earth, adopt this green plugin for your applications</description>
-    <inceptionYear>2022</inceptionYear>
+    <inceptionYear>2023</inceptionYear>
     <organization>
-        <name>Green Code Initiative</name>
+        <name>green-code-initiative</name>
         <url>https://github.com/green-code-initiative</url>
     </organization>
     <licenses>
@@ -181,7 +181,7 @@
                     </properties>
                     <licenseSets>
                         <licenseSet>
-                            <header>com/mycila/maven/plugin/license/templates/LGPL-3.txt</header>
+                            <header>com/mycila/maven/plugin/license/templates/GPL-3.txt</header>
                             <includes>
                                 <include>**/*.java</include>
                             </includes>
