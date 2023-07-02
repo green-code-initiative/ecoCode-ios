@@ -15,3 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#11](https://github.com/green-code-initiative/ecoCode-ios/pull/11) License and source headers update (LGPL v3 to GPL v3)
 
 ### Deleted
+
+[unreleased]: https://github.com/green-code-initiative/ecoCode-ios/compare/v1.0.1...HEAD
+
+[1.0.1]: https://github.com/green-code-initiative/ecoCode/releases/tag/v1.0.1
