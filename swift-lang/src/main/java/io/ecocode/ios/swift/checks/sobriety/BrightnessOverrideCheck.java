@@ -17,29 +17,24 @@
  */
 package io.ecocode.ios.swift.checks.sobriety;
 
-import io.ecocode.ios.swift.RegisterRule;
-import io.ecocode.ios.swift.Swift;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import io.ecocode.ios.checks.RuleCheck;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.sonar.check.Rule;
 
 /**
  * Check the use of "UIScreen.main.brightness" and triggers when set.
  */
-@RegisterRule
+@Rule(key = "ESOB005")
 public class BrightnessOverrideCheck extends RuleCheck {
-
-    public BrightnessOverrideCheck() {
-        super("ESOB005", Swift.RULES_PATH, Swift.REPOSITORY_KEY);
-    }
-
+    private static final String DEFAULT_ISSUE_MESSAGE = "Do not force Brightness in your code, unless absolutely necessary";
     @Override
     public void apply(ParseTree tree) {
 
     if (tree instanceof Swift5Parser.ExpressionContext) {
         Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
         if (id.getText().contains("UIScreen.main.brightness")) {
-            this.recordIssue(ruleId, id.getStart().getStartIndex());
+            this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
         }
     }
 }

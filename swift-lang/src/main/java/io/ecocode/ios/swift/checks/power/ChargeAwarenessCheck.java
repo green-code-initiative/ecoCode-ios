@@ -17,11 +17,10 @@
  */
 package io.ecocode.ios.swift.checks.power;
 
-import io.ecocode.ios.swift.RegisterRule;
-import io.ecocode.ios.swift.Swift;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import io.ecocode.ios.checks.RuleCheck;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.sonar.check.Rule;
 
 import java.util.List;
 
@@ -30,13 +29,9 @@ import java.util.List;
  * or `UIDevice.batteryLevelDidChangeNotification` or `UIDevice.batteryStateDidChangeNotification`.
  * If found, reports a (positive) issue.
  */
-@RegisterRule
+@Rule(key = "EPOW001")
 public class ChargeAwarenessCheck extends RuleCheck {
-
-    public ChargeAwarenessCheck() {
-        super("EPOW001", Swift.RULES_PATH, Swift.REPOSITORY_KEY);
-    }
-
+    private static final String DEFAULT_ISSUE_MESSAGE = "Monitoring power changes and customizing behavior depending on battery level is a good practice";
     private static final String PROPERTY_BATTERY_LEVEL = "UIDevice.current.batteryLevel";
     private static final String PROPERTY_BATTERY_STATE = "UIDevice.current.batteryState";
     private static final String CONSTANT_BATTERY_LEVEL_NOTIFICATION = "UIDevice.batteryLevelDidChangeNotification";
@@ -54,7 +49,7 @@ public class ChargeAwarenessCheck extends RuleCheck {
         if (tree instanceof Swift5Parser.Postfix_expressionContext) {
             Swift5Parser.Postfix_expressionContext id = (Swift5Parser.Postfix_expressionContext) tree;
             if (EXPRESSIONS_TO_CHECK.contains(id.getText())) {
-                this.recordIssue(ruleId, id.getStart().getStartIndex());
+                this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
         }
     }

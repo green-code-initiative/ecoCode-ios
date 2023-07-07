@@ -53,7 +53,7 @@ public class ReportIssueRecorderTest {
         issues.add(new ReportIssue("ruleId", "message", testFile.path().toString(), 3));
 
         ReportIssueRecorder recorder = new ReportIssueRecorder(context);
-        recorder.recordIssues(issues, "TestRepo");
+        recorder.recordIssues(issues);
 
         assertThat(context.allIssues()).hasSize(1);
 

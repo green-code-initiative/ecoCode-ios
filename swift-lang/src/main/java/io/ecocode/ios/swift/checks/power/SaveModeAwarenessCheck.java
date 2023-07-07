@@ -18,19 +18,15 @@
 package io.ecocode.ios.swift.checks.power;
 
 import io.ecocode.ios.checks.RuleCheck;
-import io.ecocode.ios.swift.RegisterRule;
-import io.ecocode.ios.swift.Swift;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.sonar.check.Rule;
 
 import java.util.List;
 
-@RegisterRule
+@Rule(key = "EPOW002")
 public class SaveModeAwarenessCheck extends RuleCheck {
-    public SaveModeAwarenessCheck() {
-        super("EPOW002", Swift.RULES_PATH, Swift.REPOSITORY_KEY);
-    }
-
+    private static final String DEFAULT_ISSUE_MESSAGE = "Taking into account when the device is entering or exiting the power save mode is a good practice";
     private static final String PROCESS_INFO = "ProcessInfo.processInfo.isLowPowerModeEnabled";
     private static final String POWER_STATE_NOTIFICATION_FULL = "Notification.Name.NSProcessInfoPowerStateDidChange";
     private static final String POWER_STATE_NOTIFICATION_SHORT = ".NSProcessInfoPowerStateDidChange";
@@ -46,7 +42,7 @@ public class SaveModeAwarenessCheck extends RuleCheck {
         if (tree instanceof Swift5Parser.Postfix_expressionContext) {
             Swift5Parser.Postfix_expressionContext id = (Swift5Parser.Postfix_expressionContext) tree;
             if (EXPRESSIONS_TO_CHECK.contains(id.getText())) {
-                this.recordIssue(ruleId, id.getStart().getStartIndex());
+                this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
         }
     }

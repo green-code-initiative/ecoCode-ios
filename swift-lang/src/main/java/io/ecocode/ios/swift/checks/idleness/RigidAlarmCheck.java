@@ -17,28 +17,24 @@
  */
 package io.ecocode.ios.swift.checks.idleness;
 
-import io.ecocode.ios.swift.RegisterRule;
-import io.ecocode.ios.swift.Swift;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import io.ecocode.ios.checks.RuleCheck;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.sonar.check.Rule;
 
 /**
  * Check the presence of the class "Timer".
  */
-@RegisterRule
+@Rule(key = "EIDL002")
 public class RigidAlarmCheck extends RuleCheck {
-
-    public RigidAlarmCheck() {
-        super("EIDL002", Swift.RULES_PATH, Swift.REPOSITORY_KEY);
-    }
+    private static final String DEFAULT_ISSUE_MESSAGE = "Setting a tolerance for timers will allow them to fire later than the scheduled fire date.";
 
     @Override
     public void apply(ParseTree tree) {
         if (tree instanceof Swift5Parser.IdentifierContext) {
             Swift5Parser.IdentifierContext id = (Swift5Parser.IdentifierContext) tree;
             if (id.getText().equals("Timer")) {
-                this.recordIssue(ruleId, id.getStart().getStartIndex());
+                this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
         }
     }
