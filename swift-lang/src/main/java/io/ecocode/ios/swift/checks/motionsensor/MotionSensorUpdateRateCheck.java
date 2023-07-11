@@ -18,28 +18,24 @@
 package io.ecocode.ios.swift.checks.motionsensor;
 
 import io.ecocode.ios.checks.RuleCheck;
-import io.ecocode.ios.swift.RegisterRule;
-import io.ecocode.ios.swift.Swift;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
+import org.sonar.check.Rule;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static io.ecocode.ios.swift.checks.CheckHelper.isImportExisting;
 
-@RegisterRule
+@Rule(key="ESOB003")
 public class MotionSensorUpdateRateCheck extends RuleCheck {
-    Swift5Parser.Import_declarationContext importTree = null;
+    private static final String DEFAULT_ISSUE_MESSAGE = "Set appropriate motion sensor update rates for the application's needs";
+    private Swift5Parser.Import_declarationContext importTree = null;
     private boolean sensorRateUpdated = false;
     private boolean importExist = false;
 
     private final List<String> sensorRateUpdateExpressions = Arrays.asList("desiredAccuracy", "activityType", "requestLocation", "magnetometerUpdateInterval");
-
-    public MotionSensorUpdateRateCheck() {
-        super("ESOB003", Swift.RULES_PATH, Swift.REPOSITORY_KEY);
-    }
 
     @Override
     public void apply(ParseTree tree) {
@@ -54,7 +50,7 @@ public class MotionSensorUpdateRateCheck extends RuleCheck {
 
         if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
             if (importExist && !sensorRateUpdated) {
-                this.recordIssue(ruleId, importTree.getStart().getStartIndex());
+                this.recordIssue(importTree.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
             importExist = false;
             sensorRateUpdated = false;

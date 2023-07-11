@@ -25,6 +25,7 @@ import org.reflections.Reflections;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
+import org.sonar.check.Rule;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class EcoCodeSwiftVisitor implements ParseTreeItemVisitor {
             Annotation[] annotations = clazz.getAnnotations();
 
             for (Annotation annotation : annotations) {
-                if (annotation instanceof RegisterRule) {
+                if (annotation instanceof Rule) {
                     try {
                         checks.add(clazz.getDeclaredConstructor().newInstance());
                     } catch (Exception e) {

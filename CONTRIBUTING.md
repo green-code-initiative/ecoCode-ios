@@ -43,4 +43,4 @@ In order to implement a check for the rule, create a Check class inherited from 
 
 Have a look at `swift-lang/src/main/java/io/ecocode/ios/swift/checks/idleness/IdleTimerDisabledCheck` to learn more about the implementation.
 
-Don't forget to add the `@RegisterRule` annotation to the check in order to register it to the AST visitor.
+Don't forget to add the `@org.sonar.check.Rule` annotation to the check in order to register it to the AST visitor.

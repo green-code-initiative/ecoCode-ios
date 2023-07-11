@@ -15,11 +15,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift;
+package io.ecocode.ios;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+public class Const {
+    public static final String SWIFT_REPOSITORY_KEY = "ecoCode-swift";
 
-@Retention(RetentionPolicy.RUNTIME)
-public @interface RegisterRule {
+    private Const() {
+    }
 }

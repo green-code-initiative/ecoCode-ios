@@ -31,16 +31,9 @@ public class ReportIssue {
 
     public ReportIssue(String ruleId, String message, @Nullable String filePath, @Nullable Integer lineNumber) {
         this.ruleId = ruleId;
-        this.message = message;
+        this.message = Objects.requireNonNull(message);
         this.filePath = filePath;
         this.lineNumber = lineNumber;
-    }
-
-    public ReportIssue(String ruleId, String message) {
-        this.ruleId = ruleId;
-        this.message = message;
-        this.filePath = null;
-        this.lineNumber = null;
     }
 
     public String getRuleId() {
