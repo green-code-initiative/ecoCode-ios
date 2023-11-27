@@ -166,7 +166,7 @@
         "environment",
         "ecocode",
         "eco-design"
-      ],
-        "type": "CODE_SMELL"
-      }
+          ],
+      "type": "CODE_SMELL"
+    }
 ]

@@ -1,6 +1,6 @@
 /*
  * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2022 Green code Initiative (https://www.ecocode.io/)
+ * Copyright © 2022 Green Code Initiative (https://www.ecocode.io/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -37,7 +37,7 @@ public class AnimationFreeCheck extends RuleCheck {
             "UIView.transition", "CABasicAnimation", "CAKeyframeAnimation", "CATransition");
 
     private static final List<String> SWIFTUI_ANIMATION_METHODS = Arrays.asList("withAnimation", "Animation",
-            "AnyTransition", "onAppear", "onDisappear");
+            "AnyTransition");
 
 
     public AnimationFreeCheck() {
@@ -45,13 +45,19 @@ public class AnimationFreeCheck extends RuleCheck {
     }
 
     public void apply(ParseTree tree) {
-
         if (tree instanceof Swift5Parser.ExpressionContext) {
             Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
-            if (ANIMATION_METHODS.contains(id.getText()) || SWIFTUI_ANIMATION_METHODS.contains(id.getText())) {
+            String expressionText = id.getText();
+    
+            boolean containsAnimationMethod = ANIMATION_METHODS.stream()
+                                                .anyMatch(expressionText::contains);
+    
+             boolean containsUISwiftAnimationMethod = SWIFTUI_ANIMATION_METHODS.stream()
+                                                .anyMatch(expressionText::contains);             
+
+            if (containsAnimationMethod || containsUISwiftAnimationMethod) {
                 this.recordIssue(ruleId, id.getStart().getStartIndex());
             }
         }
     }
 }
-
