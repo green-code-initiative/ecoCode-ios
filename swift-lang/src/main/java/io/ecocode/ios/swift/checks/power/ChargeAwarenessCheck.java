@@ -17,6 +17,7 @@
  */
 package io.ecocode.ios.swift.checks.power;
 
+import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import io.ecocode.ios.checks.RuleCheck;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -30,7 +31,7 @@ import java.util.List;
  * If found, reports a (positive) issue.
  */
 @Rule(key = "EPOW001")
-public class ChargeAwarenessCheck extends RuleCheck {
+public class ChargeAwarenessCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Monitoring power changes and customizing behavior depending on battery level is a good practice";
     private static final String PROPERTY_BATTERY_LEVEL = "UIDevice.current.batteryLevel";
     private static final String PROPERTY_BATTERY_STATE = "UIDevice.current.batteryState";

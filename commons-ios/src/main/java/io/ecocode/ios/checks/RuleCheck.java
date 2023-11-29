@@ -32,6 +32,7 @@ import static java.util.Optional.ofNullable;
 public abstract class RuleCheck implements ParseTreeItemVisitor {
 
     protected String ruleId;
+    protected String repositoryKey;
 
     private class Issue {
 
@@ -75,7 +76,7 @@ public abstract class RuleCheck implements ParseTreeItemVisitor {
 
         // Record
         ReportIssueRecorder recorder = new ReportIssueRecorder(context);
-        recorder.recordIssues(reportIssues);
+        recorder.recordIssues(reportIssues, repositoryKey);
 
         // Clear issues for next file
         issues.clear();

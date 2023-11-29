@@ -17,6 +17,7 @@
  */
 package io.ecocode.ios.swift.checks.sobriety;
 
+import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import io.ecocode.ios.checks.RuleCheck;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -26,7 +27,7 @@ import org.sonar.check.Rule;
  * Check the use of "UIScreen.main.brightness" and triggers when set.
  */
 @Rule(key = "ESOB005")
-public class BrightnessOverrideCheck extends RuleCheck {
+public class BrightnessOverrideCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Do not force Brightness in your code, unless absolutely necessary";
     @Override
     public void apply(ParseTree tree) {

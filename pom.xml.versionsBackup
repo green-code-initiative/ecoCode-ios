@@ -4,15 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.ecocode</groupId>
     <artifactId>ios-plugin</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>ecoCode iOS plugin</name>
     <description>Help the earth, adopt this green plugin for your applications</description>
-    <inceptionYear>2023</inceptionYear>
+    <inceptionYear>2022</inceptionYear>
     <organization>
-        <name>green-code-initiative</name>
-        <url>https://github.com/green-code-initiative</url>
+        <name>Green code Initiative</name>
+        <url>https://collectif.greenit.fr</url>
     </organization>
     <licenses>
         <license>
@@ -57,14 +57,14 @@
         <sonar-packaging.version>1.21.0.505</sonar-packaging.version>
         <sonar-plugin-api-impl.version>9.7.1.62043</sonar-plugin-api-impl.version>
         <sslr.version>1.21</sslr.version>
-        <sonar.apacheCommons.version>[2.7,)</sonar.apacheCommons.version>
+        <sonar.apacheCommons.version>2.6</sonar.apacheCommons.version>
         <sonar.analyzerCommons.version>2.1.0.1111</sonar.analyzerCommons.version>
         <sonarApple.version>0.1.2</sonarApple.version>
         <antlr.version>4.10</antlr.version>
         <mockito.version>4.4.0</mockito.version>
         <junit.version>4.13.2</junit.version>
         <assertJ.version>3.23.1</assertJ.version>
-        <jacoco.version>0.8.9</jacoco.version>
+        <jacoco.version>0.8.8</jacoco.version>
 
     </properties>
 
@@ -142,24 +142,6 @@
 
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter</artifactId>
-                <version>5.9.3</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <version>3.24.2</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <build>
         <plugins>
 
@@ -199,7 +181,7 @@
                     </properties>
                     <licenseSets>
                         <licenseSet>
-                            <header>com/mycila/maven/plugin/license/templates/GPL-3.txt</header>
+                            <header>com/mycila/maven/plugin/license/templates/LGPL-3.txt</header>
                             <includes>
                                 <include>**/*.java</include>
                             </includes>

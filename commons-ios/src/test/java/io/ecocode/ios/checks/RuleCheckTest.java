@@ -37,6 +37,10 @@ public class RuleCheckTest {
 
     @Rule(key = "rule1")
     private static class TestRule extends RuleCheck {
+
+        public TestRule() {
+            repositoryKey = "TestRepo";
+        }
         @Override
         public void apply(ParseTree tree) {
             this.recordIssue(0, "Lorem ipsum");

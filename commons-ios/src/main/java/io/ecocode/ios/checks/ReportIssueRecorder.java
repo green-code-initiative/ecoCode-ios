@@ -34,13 +34,12 @@ public class ReportIssueRecorder {
 
     private static final Logger LOGGER = Loggers.get(ReportIssueRecorder.class);
     private final SensorContext sensorContext;
-    private static final String REPOSITORY_KEY = "ecoCode-swift";
 
     public ReportIssueRecorder(SensorContext sensorContext) {
         this.sensorContext = sensorContext;
     }
 
-    public void recordIssues(List<ReportIssue> issues) {
+    public void recordIssues(List<ReportIssue> issues, String repository) {
 
         final FileSystem fs = sensorContext.fileSystem();
         final FilePredicates predicates = fs.predicates();
@@ -52,7 +51,7 @@ public class ReportIssueRecorder {
             // The issue to be record
             NewIssue sonarIssue = sensorContext
                     .newIssue()
-                    .forRule(RuleKey.of(REPOSITORY_KEY, issue.getRuleId()));
+                    .forRule(RuleKey.of(repository, issue.getRuleId()));
             // The location of the issue to be record
             NewIssueLocation sonarIssueLocation = sonarIssue.newLocation()
                     .message(issue.getMessage());
