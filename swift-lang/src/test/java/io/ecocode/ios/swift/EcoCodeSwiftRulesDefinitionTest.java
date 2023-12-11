@@ -29,7 +29,6 @@ import org.sonar.api.server.rule.RulesDefinition.Rule;
 import org.sonar.api.utils.Version;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
@@ -79,6 +78,15 @@ class EcoCodeSwiftRulesDefinitionTest {
                 .flatMap(rule -> rule.params().stream())
                 .forEach(param -> assertions.assertThat(param.description()).as("description for " + param.key()).isNotEmpty());
         assertions.assertAll();
+    }
+
+    @Test
+    void define() {
+        RulesDefinition.Context context = new RulesDefinition.Context();
+        EcoCodeSwiftRulesDefinition rulesDefinition = new EcoCodeSwiftRulesDefinition(mock(SonarRuntime.class));
+        rulesDefinition.define(context);
+        RulesDefinition.Repository repository = context.repository(rulesDefinition.repositoryKey());
+        assertThat(repository).isNotNull();
     }
 
 }
