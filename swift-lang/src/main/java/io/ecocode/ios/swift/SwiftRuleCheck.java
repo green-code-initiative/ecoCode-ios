@@ -21,7 +21,7 @@ import io.ecocode.ios.checks.RuleCheck;
 
 public abstract class SwiftRuleCheck extends RuleCheck {
 
-    public SwiftRuleCheck() {
+    protected SwiftRuleCheck() {
         this.repositoryKey = "ecoCode-swift";
     }
 }
