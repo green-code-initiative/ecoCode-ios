@@ -20,4 +20,7 @@ package io.ecocode.ios;
 public final class Const {
     public static final String SWIFT_REPOSITORY_KEY = "ecoCode-swift";
 
+    private Const() {
+
+    }
 }
