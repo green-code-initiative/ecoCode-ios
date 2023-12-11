@@ -18,9 +18,8 @@
 package io.ecocode.ios.swift;
 
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.sonar.api.SonarRuntime;
 import org.sonar.api.rules.RuleType;
 import org.sonar.api.server.debt.DebtRemediationFunction.Type;
@@ -33,12 +32,12 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
 
-class EcoCodeSwiftRulesDefinitionTest {
+public class EcoCodeSwiftRulesDefinitionTest {
 
     private RulesDefinition.Repository repository;
 
-    @BeforeEach
-    void init() {
+    @Before
+    public void init() {
         final SonarRuntime sonarRuntime = mock(SonarRuntime.class);
         doReturn(Version.create(0, 0)).when(sonarRuntime).getApiVersion();
         EcoCodeSwiftRulesDefinition rulesDefinition = new EcoCodeSwiftRulesDefinition(sonarRuntime);
@@ -48,20 +47,19 @@ class EcoCodeSwiftRulesDefinitionTest {
     }
 
     @Test
-    @DisplayName("Test repository metadata")
-    void testMetadata() {
+    public void testMetadata() {
         assertThat(repository.name()).isEqualTo("ecoCode");
         assertThat(repository.language()).isEqualTo("swift");
         assertThat(repository.key()).isEqualTo("ecoCode-swift");
     }
 
     @Test
-    void testRegistredRules() {
+    public void testRegistredRules() {
         assertThat(repository.rules()).hasSize(9);
     }
 
     @Test
-    void assertRuleProperties() {
+    public void assertRuleProperties() {
         Rule rule = repository.rule("EIDL001");
         assertThat(rule).isNotNull();
         assertThat(rule.name()).isEqualTo("Idle timer disabled");
@@ -71,7 +69,7 @@ class EcoCodeSwiftRulesDefinitionTest {
     }
 
     @Test
-    void testAllRuleParametersHaveDescription() {
+    public void testAllRuleParametersHaveDescription() {
         SoftAssertions assertions = new SoftAssertions();
         repository.rules().stream()
                 .flatMap(rule -> rule.params().stream())
@@ -80,7 +78,7 @@ class EcoCodeSwiftRulesDefinitionTest {
     }
 
     @Test
-    void define() {
+    public void define() {
         RulesDefinition.Context context = new RulesDefinition.Context();
         EcoCodeSwiftRulesDefinition rulesDefinition = new EcoCodeSwiftRulesDefinition(mock(SonarRuntime.class));
         rulesDefinition.define(context);
