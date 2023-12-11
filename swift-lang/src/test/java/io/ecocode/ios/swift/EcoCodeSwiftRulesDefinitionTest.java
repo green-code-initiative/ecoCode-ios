@@ -36,7 +36,6 @@ import static org.mockito.Mockito.mock;
 class EcoCodeSwiftRulesDefinitionTest {
 
     private RulesDefinition.Repository repository;
-    private RulesDefinition.Context context;
 
     @BeforeEach
     void init() {
