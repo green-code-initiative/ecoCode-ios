@@ -19,12 +19,12 @@ package io.ecocode.ios.swift;
 
 import io.ecocode.ios.antlr.AntlrContext;
 import io.ecocode.ios.antlr.ParseTreeItemVisitor;
-import io.ecocode.ios.checks.RuleCheck;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.reflections.Reflections;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
+import org.sonar.check.Rule;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
@@ -34,19 +34,19 @@ import java.util.Set;
 public class EcoCodeSwiftVisitor implements ParseTreeItemVisitor {
     private static final Logger LOGGER = Loggers.get(EcoCodeSwiftVisitor.class);
 
-    private final List<RuleCheck> checks = new ArrayList<>();
+    private final List<SwiftRuleCheck> checks = new ArrayList<>();
 
     public EcoCodeSwiftVisitor() {
         // Load checks
         Reflections reflections = new Reflections("io.ecocode.ios.swift.checks");
 
-        Set<Class<? extends RuleCheck>> allClasses = reflections.getSubTypesOf(RuleCheck.class);
+        Set<Class<? extends SwiftRuleCheck>> allClasses = reflections.getSubTypesOf(SwiftRuleCheck.class);
 
-        for (Class<? extends RuleCheck> clazz : allClasses) {
+        for (Class<? extends SwiftRuleCheck> clazz : allClasses) {
             Annotation[] annotations = clazz.getAnnotations();
 
             for (Annotation annotation : annotations) {
-                if (annotation instanceof RegisterRule) {
+                if (annotation instanceof Rule) {
                     try {
                         checks.add(clazz.getDeclaredConstructor().newInstance());
                     } catch (Exception e) {
@@ -59,19 +59,19 @@ public class EcoCodeSwiftVisitor implements ParseTreeItemVisitor {
 
     @Override
     public void apply(ParseTree tree) {
-        for (RuleCheck check : checks) {
+        for (SwiftRuleCheck check : checks) {
             check.apply(tree);
         }
     }
 
     @Override
     public void fillContext(SensorContext context, AntlrContext antlrContext) {
-        for (RuleCheck check : checks) {
+        for (SwiftRuleCheck check : checks) {
             check.fillContext(context, antlrContext);
         }
     }
 
-    public List<RuleCheck> getChecks() {
+    public List<SwiftRuleCheck> getChecks() {
         return checks;
     }
 }

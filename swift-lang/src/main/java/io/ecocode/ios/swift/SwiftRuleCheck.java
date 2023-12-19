@@ -17,20 +17,11 @@
  */
 package io.ecocode.ios.swift;
 
-import org.junit.Test;
-import org.reflections.Reflections;
+import io.ecocode.ios.checks.RuleCheck;
 
-import java.util.Set;
+public abstract class SwiftRuleCheck extends RuleCheck {
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-public class EcoCodeSwiftVisitorTest {
-    @Test
-    public void analyze() throws Throwable {
-        Reflections reflections = new Reflections("io.ecocode.ios.swift.checks");
-        Set<Class<? extends SwiftRuleCheck>> allClasses = reflections.getSubTypesOf(SwiftRuleCheck.class);
-
-        EcoCodeSwiftVisitor ecoCodeSwiftVisitor = new EcoCodeSwiftVisitor();
-        assertThat(ecoCodeSwiftVisitor.getChecks()).hasSize(allClasses.size());
+    protected SwiftRuleCheck() {
+        this.repositoryKey = "ecoCode-swift";
     }
 }

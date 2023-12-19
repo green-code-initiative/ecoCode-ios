@@ -15,23 +15,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.rules;
+package io.ecocode.ios.swift;
 
-public final class RepositoryRuleDebt {
+import org.junit.Test;
+import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 
-    private final String function;
-    private final String offset;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertNotNull;
 
-    public RepositoryRuleDebt(final String function, final String offset) {
-        this.function = function;
-        this.offset = offset;
-    }
+public class EcoCodeSwiftProfileTest {
 
-    public String getFunction() {
-        return function;
-    }
+    @Test
+    public void define() {
+        EcoCodeSwiftProfile profile = new EcoCodeSwiftProfile();
+        BuiltInQualityProfilesDefinition.Context context = new BuiltInQualityProfilesDefinition.Context();
 
-    public String getOffset() {
-        return offset;
+        profile.define(context);
+        BuiltInQualityProfilesDefinition.BuiltInQualityProfile ecoCodeProfile = context.profile(Swift.KEY, Swift.PROFILE_NAME);
+        assertNotNull(ecoCodeProfile);
     }
 }

@@ -86,7 +86,6 @@ public class ReportIssueRecorder {
                 // Associating the location to the issue and saving it.
                 sonarIssue.at(sonarIssueLocation).save();
             }
-
         }
     }
 }

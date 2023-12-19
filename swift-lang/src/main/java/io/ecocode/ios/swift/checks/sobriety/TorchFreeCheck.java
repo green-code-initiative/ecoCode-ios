@@ -17,22 +17,18 @@
  */
 package io.ecocode.ios.swift.checks.sobriety;
 
-import io.ecocode.ios.swift.RegisterRule;
-import io.ecocode.ios.swift.Swift;
+import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import io.ecocode.ios.checks.RuleCheck;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.sonar.check.Rule;
 
 /**
  * Check the use of "AVCaptureTorchMode.on", "setTorchModeOn(level: Float)", or "torchMode = .on" and triggers when set to true.
  */
-@RegisterRule
-public class TorchFreeCheck extends RuleCheck {
-
-    public TorchFreeCheck() {
-        super("ESOB006", Swift.RULES_PATH, Swift.REPOSITORY_KEY);
-    }
-
+@Rule(key = "ESOB006")
+public class TorchFreeCheck extends SwiftRuleCheck {
+    private static final String DEFAULT_ISSUE_MESSAGE = "Usage of `AVCaptureDevice#torchMode` or `AVCaptureDevice#setTorchModeOn(level:)` must absolutely be avoided";
     @Override
     public void apply(ParseTree tree) {
 
@@ -42,7 +38,7 @@ public class TorchFreeCheck extends RuleCheck {
             if (expressionText.contains("AVCaptureTorchMode.on") ||
                 expressionText.contains("setTorchModeOn") ||
                 expressionText.contains("torchMode=.on")) {
-                this.recordIssue(ruleId, id.getStart().getStartIndex());
+                this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
         }
     }

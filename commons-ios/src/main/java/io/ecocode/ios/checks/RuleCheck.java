@@ -17,68 +17,49 @@
  */
 package io.ecocode.ios.checks;
 
-import io.ecocode.ios.antlr.AntlrContext;
-import io.ecocode.ios.antlr.ParseTreeItemVisitor;
-import io.ecocode.ios.rules.RepositoryRule;
-import io.ecocode.ios.rules.RepositoryRuleParser;
-import org.sonar.api.batch.fs.InputFile;
-import org.sonar.api.batch.sensor.SensorContext;
-import org.sonar.api.utils.log.Logger;
-import org.sonar.api.utils.log.Loggers;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 
-import static java.lang.String.format;
+import io.ecocode.ios.antlr.AntlrContext;
+import io.ecocode.ios.antlr.ParseTreeItemVisitor;
+import org.sonar.api.batch.fs.InputFile;
+import org.sonar.api.batch.sensor.SensorContext;
+import org.sonar.check.Rule;
+
+import static java.util.Optional.ofNullable;
 
 public abstract class RuleCheck implements ParseTreeItemVisitor {
 
-    private static final Logger LOGGER = Loggers.get(RuleCheck.class);
-
     protected String ruleId;
-    protected String rulesPath;
     protected String repositoryKey;
 
     private class Issue {
-        protected Issue(String ruleId, int startIndex) {
+
+        protected Issue(String ruleId, int startIndex, String message) {
             this.ruleId = ruleId;
             this.startIndex = startIndex;
+            this.message = Objects.requireNonNull(message);
         }
-        protected String ruleId;
-        protected int startIndex;
+        final String ruleId;
+        final int startIndex;
+        final String message;
     }
 
-    private List<Issue> issues = new ArrayList<>();
+    private final List<Issue> issues = new ArrayList<>();
 
-    private static List<RepositoryRule> rules = new ArrayList<>();
-    public static RepositoryRule getRepositoryRule(String ruleId, String rulesPath) throws IOException {
-        if (rules.isEmpty()) {
-            RepositoryRuleParser repositoryRuleParser = new RepositoryRuleParser();
-            rules = repositoryRuleParser.parse(rulesPath);
-        }
-        Optional<RepositoryRule> rule = rules.stream().filter(r -> r.getKey().equals(ruleId)).findFirst();
-        if (rule.isPresent()) {
-            return rule.get();
-        } else {
-            return null;
-        }
+    protected RuleCheck() {
+        this.ruleId = ofNullable(this.getClass().getAnnotation(Rule.class))
+                .orElseThrow(() -> new IllegalArgumentException("Please add @org.sonar.check.Rule to: " + this.getClass()))
+                .key();
     }
 
-    protected RuleCheck(String ruleId, String rulesPath, String repositoryKey) {
-        this.ruleId = ruleId;
-        this.rulesPath = rulesPath;
-        this.repositoryKey = repositoryKey;
-    }
-
-    protected void recordIssue(String ruleId, int startIndex) {
-        issues.add(new Issue(ruleId, startIndex));
+    protected void recordIssue(int startIndex, String message) {
+        issues.add(new Issue(this.ruleId, startIndex, message));
     }
 
     @Override
     public void fillContext(SensorContext context, AntlrContext antlrContext) {
-
         final InputFile file = antlrContext.getFile();
         if (file == null) {
             return;
@@ -90,17 +71,7 @@ public abstract class RuleCheck implements ParseTreeItemVisitor {
             // Compute location
             int[] loc = antlrContext.getLineAndColumn(i.startIndex);
             // Retrieve rule data
-            try {
-                RepositoryRule rule = RuleCheck.getRepositoryRule(i.ruleId, rulesPath);
-                if (rule != null) {
-                    reportIssues.add(new ReportIssue(i.ruleId, rule.getDescription(), file.toString(), loc[0]));
-                } else {
-                    LOGGER.warn(format("Failed to identify rule %s", i.ruleId));
-                }
-
-            } catch (IOException e) {
-                LOGGER.warn(format("Failed to identify rule %s", i.ruleId),e);
-            }
+            reportIssues.add(new ReportIssue(i.ruleId, i.message, file.toString(), loc[0]));
         }
 
         // Record

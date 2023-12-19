@@ -35,6 +35,7 @@ public class ThriftyGeolocationCheckTest {
         Optional<Issue> issue = context.allIssues().stream().findFirst();
         issue.ifPresent(i -> {
             assertThat(i.ruleKey().rule()).isEqualTo("ESOB002");
+
             assertThat(i.ruleKey().repository()).isEqualTo("ecoCode-swift");
             IssueLocation location = i.primaryLocation();
             assertThat(location.textRange().start().line()).isEqualTo(1);

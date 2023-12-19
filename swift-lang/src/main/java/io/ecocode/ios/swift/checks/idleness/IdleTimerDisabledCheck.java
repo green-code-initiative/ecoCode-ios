@@ -17,21 +17,18 @@
  */
 package io.ecocode.ios.swift.checks.idleness;
 
-import io.ecocode.ios.swift.RegisterRule;
-import io.ecocode.ios.swift.Swift;
+import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import io.ecocode.ios.checks.RuleCheck;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.sonar.check.Rule;
 
 /**
  * Check the use of "UIApplication.shared.isIdleTimerDisabled" and triggers when set to true.
  */
-@RegisterRule
-public class IdleTimerDisabledCheck extends RuleCheck {
-
-    public IdleTimerDisabledCheck() {
-        super("EIDL001", Swift.RULES_PATH, Swift.REPOSITORY_KEY);
-    }
+@Rule(key = "EIDL001")
+public class IdleTimerDisabledCheck extends SwiftRuleCheck {
+    private static final String DEFAULT_ISSUE_MESSAGE = "Do not disable idle timer, unless absolutely necessary.";
 
     @Override
     public void apply(ParseTree tree) {
@@ -39,7 +36,7 @@ public class IdleTimerDisabledCheck extends RuleCheck {
         if (tree instanceof Swift5Parser.ExpressionContext) {
             Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
             if (id.getText().equals("UIApplication.shared.isIdleTimerDisabled=true")) {
-                this.recordIssue(ruleId, id.getStart().getStartIndex());
+                this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
         }
     }
