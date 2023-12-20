@@ -3,7 +3,7 @@
 
 Mobile apps running on top of battery-limited devices are more than others concerned by the reduction of their environmental footprint. Hence, we created `ecoCode iOS`, the version of ecoCode project fully dedicated to the iOS platform. It provides static code analyzers to highlight code structures that may have a negative ecological impact: energy over-consumption, "fatware", shortening devices' lifespan, etc.
 
-ecoCode iOS is based on evolving catalogs of [best practices](https://github.com/cnumr/best-practices-mobile?#-ios-platform). A SonarQube plugin then implements these catalogs as rules for scanning your projects.
+ecoCode iOS is based on evolving catalogs of [best practices for iOS](https://github.com/cnumr/best-practices-mobile?#-ios-platform). A SonarQube plugin then implements these catalogs as rules for scanning your projects.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![Build](https://github.com/green-code-initiative/ecoCode-ios/actions/workflows/build.yml/badge.svg)
 
