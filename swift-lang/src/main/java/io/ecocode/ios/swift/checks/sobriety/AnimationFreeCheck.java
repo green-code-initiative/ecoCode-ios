@@ -17,21 +17,22 @@
  */
 package io.ecocode.ios.swift.checks.sobriety;
 
-import io.ecocode.ios.swift.RegisterRule;
-import io.ecocode.ios.swift.Swift;
+import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
-import io.ecocode.ios.checks.RuleCheck;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.sonar.check.Rule;
 
 import java.util.Arrays;
 import java.util.List;
 
-import org.antlr.v4.runtime.tree.ParseTree;
 
 /**
  * Check the use of "UIScreen.main.brightness" and triggers when set.
  */
-@RegisterRule
-public class AnimationFreeCheck extends RuleCheck {
+@Rule(key = "ESOB007")
+public class AnimationFreeCheck extends SwiftRuleCheck {
+
+    private static final String DEFAULT_ISSUE_MESSAGE = "Usage of Animations must absolutely be avoided";
 
     private static final List<String> ANIMATION_METHODS = Arrays.asList("UIView.animate", "UIView.animateKeyframes",
             "UIView.transition", "CABasicAnimation", "CAKeyframeAnimation", "CATransition");
@@ -39,10 +40,6 @@ public class AnimationFreeCheck extends RuleCheck {
     private static final List<String> SWIFTUI_ANIMATION_METHODS = Arrays.asList("withAnimation", "Animation",
             "AnyTransition");
 
-
-    public AnimationFreeCheck() {
-        super("ESOB007", Swift.RULES_PATH, Swift.REPOSITORY_KEY);
-    }
 
     public void apply(ParseTree tree) {
         if (tree instanceof Swift5Parser.ExpressionContext) {
@@ -56,7 +53,7 @@ public class AnimationFreeCheck extends RuleCheck {
                                                 .anyMatch(expressionText::contains);             
 
             if (containsAnimationMethod || containsUISwiftAnimationMethod) {
-                this.recordIssue(ruleId, id.getStart().getStartIndex());
+                this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
         }
     }
