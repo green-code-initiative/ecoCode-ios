@@ -1,0 +1,18 @@
+{
+	"key": "EPOW001",
+	"title": "Charge Awareness",
+	"defaultSeverity": "Info",
+	"description": "Monitoring power changes and customizing behavior depending on battery level is a good practice.",
+	"status": "ready",
+	"remediation": {
+		"func": "Constant/Issue",
+		"constantCost": "0min"
+	},
+	"tags": [
+		"ecocode",
+		"environment",
+		"power",
+		"eco-design"
+	],
+	"type": "CODE_SMELL"
+}

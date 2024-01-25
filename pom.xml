@@ -4,14 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.ecocode</groupId>
     <artifactId>ios-plugin</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>ecoCode iOS plugin</name>
     <description>Help the earth, adopt this green plugin for your applications</description>
-    <inceptionYear>2022</inceptionYear>
+    <inceptionYear>2023</inceptionYear>
     <organization>
-        <name>Green Code Initiative</name>
+        <name>green-code-initiative</name>
         <url>https://github.com/green-code-initiative</url>
     </organization>
     <licenses>
@@ -64,7 +64,7 @@
         <mockito.version>4.4.0</mockito.version>
         <junit.version>4.13.2</junit.version>
         <assertJ.version>3.23.1</assertJ.version>
-        <jacoco.version>0.8.8</jacoco.version>
+        <jacoco.version>0.8.11</jacoco.version>
 
     </properties>
 
@@ -142,6 +142,17 @@
 
     </dependencies>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>3.24.2</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <plugins>
 
@@ -181,7 +192,7 @@
                     </properties>
                     <licenseSets>
                         <licenseSet>
-                            <header>com/mycila/maven/plugin/license/templates/LGPL-3.txt</header>
+                            <header>com/mycila/maven/plugin/license/templates/GPL-3.txt</header>
                             <includes>
                                 <include>**/*.java</include>
                             </includes>

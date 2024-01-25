@@ -3,7 +3,7 @@
 
 Mobile apps running on top of battery-limited devices are more than others concerned by the reduction of their environmental footprint. Hence, we created `ecoCode iOS`, the version of ecoCode project fully dedicated to the iOS platform. It provides static code analyzers to highlight code structures that may have a negative ecological impact: energy over-consumption, "fatware", shortening devices' lifespan, etc.
 
-ecoCode iOS is based on evolving catalogs of [best practices](https://github.com/cnumr/best-practices-mobile). A SonarQube plugin then implements these catalogs as rules for scanning your projects. To learn more, take a look at the [complete presentation](docs/resources/devfest-2022.pdf) (in french) or the [presentation in a nutshell](docs/resources/apidays-2022.pdf) (in english).
+ecoCode iOS is based on evolving catalogs of [best practices for iOS](https://github.com/cnumr/best-practices-mobile?#-ios-platform). A SonarQube plugin then implements these catalogs as rules for scanning your projects.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) ![Build](https://github.com/green-code-initiative/ecoCode-ios/actions/workflows/build.yml/badge.svg)
 
@@ -19,7 +19,9 @@ ecoCode iOS SonarQube plugin is an "eco-responsibility" static code analyzer for
 
 Ready to use binaries are available [from GitHub](https://github.com/green-code-initiative/ecoCode-ios/releases).
 
-🚀 Quickstart
+NB: To work, `ecocode-ios` needs `Swift` language support in SonarQube. For *SonarQube Community Edition* (which does not support Swift language), you need to install an additional plugin like [sonar-apple](https://github.com/insideapp-oss/sonar-apple).
+
+🚀 Development Quickstart
 -------------
 
 ### Requirements
