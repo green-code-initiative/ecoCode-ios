@@ -1,0 +1,19 @@
+{
+	"key": "ESOB007",
+	"title": "Animation Methods in UIKit and SwiftUI",
+	"defaultSeverity": "Major",
+	"description": "Animations play a crucial role in creating a dynamic and engaging user interface in iOS applications. Both UIKit and SwiftUI provide powerful tools to create smooth and appealing animations. Developers need to be familiar with various methods and properties to implement animations effectively.\n\nAnimation Methods in UIKit and SwiftUI\n\nNoncompliant Code Example UIKit\n\n- UIView.animate(withDuration:animations:)\n- UIView.animate(withDuration:animations:completion:)\n- UIView.animate(withDuration:delay:options:animations:completion:)\n- UIView.animateKeyframes(withDuration:delay:options:animations:completion:)\n- UIView.transition(with:duration:options:animations:completion:)\n- CABasicAnimation\n- CAKeyframeAnimation\n- CATransition\n\nNoncompliant Code Example SwiftUI\n\n- withAnimation\n- Animation\n- AnyTransition\n- .animation(Animation?)\n- .transition(AnyTransition)\n- .onAppear(perform:)\n- .onDisappear(perform:)\n\nTo ensure animations are used effectively without draining the device's battery, it's important to check for unnecessary animations and optimize them. This can be done by reviewing the use of functions like withAnimation(::), the animation(_:value:) view modifier, and the binding’s animation(_:) method in SwiftUI, as well as checking the use of UIKit's animation methods.",
+	"status": "ready",
+	"remediation": {
+	  "func": "Constant/Issue",
+	  "constantCost": "5min"
+	},
+	"tags": [
+	  "sobriety",
+	  "environment",
+	  "ecocode",
+	  "eco-design"
+	],
+	"type": "CODE_SMELL"
+  }
+  
