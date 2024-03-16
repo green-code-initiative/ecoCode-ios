@@ -17,7 +17,6 @@
  */
 package io.ecocode.ios.swift.checks.geolocalisation;
 
-import io.ecocode.ios.checks.RuleCheck;
 import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -26,7 +25,7 @@ import org.sonar.check.Rule;
 
 import static io.ecocode.ios.swift.checks.CheckHelper.isImportExisting;
 
-@Rule(key = "ESOB002")
+@Rule(key = "EC19")
 public class ThriftyGeolocation extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Adapt location accuracy and type to applications needs.";
     private Swift5Parser.Import_declarationContext importTree = null;

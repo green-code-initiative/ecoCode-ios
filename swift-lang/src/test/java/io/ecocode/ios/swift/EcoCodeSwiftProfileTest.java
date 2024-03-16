@@ -20,7 +20,6 @@ package io.ecocode.ios.swift;
 import org.junit.Test;
 import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 
 public class EcoCodeSwiftProfileTest {

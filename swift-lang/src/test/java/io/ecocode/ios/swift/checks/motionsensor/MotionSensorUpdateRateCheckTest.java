@@ -34,7 +34,7 @@ public class MotionSensorUpdateRateCheckTest {
         assertThat(context.allIssues()).hasSize(1);
         Optional<Issue> issue = context.allIssues().stream().findFirst();
         issue.ifPresent(i -> {
-            assertThat(i.ruleKey().rule()).isEqualTo("ESOB003");
+            assertThat(i.ruleKey().rule()).isEqualTo("EC20");
             assertThat(i.ruleKey().repository()).isEqualTo("ecoCode-swift");
             IssueLocation location = i.primaryLocation();
             assertThat(location.textRange().start().line()).isEqualTo(1);

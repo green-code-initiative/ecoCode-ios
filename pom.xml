@@ -66,9 +66,13 @@
         <assertJ.version>3.23.1</assertJ.version>
         <jacoco.version>0.8.11</jacoco.version>
 
+        <!-- Temporary version waiting for real automatic release in ecocode repository -->
+        <ecocode-rules-specifications.version>1.5.0</ecocode-rules-specifications.version>
+
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>org.sonarsource.sonarqube</groupId>
             <artifactId>sonar-plugin-api</artifactId>

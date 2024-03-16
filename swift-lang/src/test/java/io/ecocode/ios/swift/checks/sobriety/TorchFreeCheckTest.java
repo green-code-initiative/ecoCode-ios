@@ -57,7 +57,7 @@ public class TorchFreeCheckTest {
     }
     
     private void assertIssue(Issue issue, int line) {
-        assertThat(issue.ruleKey().rule()).isEqualTo("ESOB006");
+        assertThat(issue.ruleKey().rule()).isEqualTo("EC23");
         assertThat(issue.ruleKey().repository()).isEqualTo("ecoCode-swift");
         IssueLocation location = issue.primaryLocation();
         assertThat(location.textRange().start().line()).isEqualTo(line);

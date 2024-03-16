@@ -19,14 +19,13 @@ package io.ecocode.ios.swift.checks.idleness;
 
 import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
-import io.ecocode.ios.checks.RuleCheck;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
 
 /**
  * Check the presence of the class "Timer".
  */
-@Rule(key = "EIDL002")
+@Rule(key = "EC15")
 public class RigidAlarmCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Setting a tolerance for timers will allow them to fire later than the scheduled fire date.";
 
