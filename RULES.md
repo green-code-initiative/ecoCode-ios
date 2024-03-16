@@ -9,7 +9,6 @@ Some rules have been already implemented in the plugin. Table of unimplemented r
 | # | **Rule Name**      |     **Scanner**     |      **Observation**     |
 |---|:----------------|:-------------:|:-------------:|
 | ESOB004 | Disabled Dark Mode | Xml | Plist scanning |
-| ESOB007 | Animation-free | Swift | |
 
 ### Social
 
