@@ -25,7 +25,7 @@ import org.sonar.check.Rule;
 /**
  * Check the presence of the class "Timer".
  */
-@Rule(key = "EC15")
+@Rule(key = "EC506")
 public class RigidAlarmCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Setting a tolerance for timers will allow them to fire later than the scheduled fire date.";
 

@@ -25,7 +25,7 @@ import org.sonar.check.Rule;
 /**
  * Check the use of "UIApplication.shared.isIdleTimerDisabled" and triggers when set to true.
  */
-@Rule(key = "EC14")
+@Rule(key = "EC505")
 public class IdleTimerDisabledCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Do not disable idle timer, unless absolutely necessary.";
 

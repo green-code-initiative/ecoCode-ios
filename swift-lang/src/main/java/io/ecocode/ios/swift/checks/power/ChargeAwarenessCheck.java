@@ -29,7 +29,7 @@ import java.util.List;
  * or `UIDevice.batteryLevelDidChangeNotification` or `UIDevice.batteryStateDidChangeNotification`.
  * If found, reports a (positive) issue.
  */
-@Rule(key = "EC16")
+@Rule(key = "EC602")
 public class ChargeAwarenessCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Monitoring power changes and customizing behavior depending on battery level is a good practice";
     private static final String PROPERTY_BATTERY_LEVEL = "UIDevice.current.batteryLevel";
