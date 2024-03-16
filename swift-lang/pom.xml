@@ -14,7 +14,7 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>ecocode-rules-specifications</artifactId>
-            <version>1.5.0</version>
+            <version>${ecocode-rules-specifications.version}</version>
             <classifier>swift</classifier>
         </dependency>
 
