@@ -83,7 +83,7 @@ public class AnimationFreeCheckTest {
     }
     
     private void assertIssue(Issue issue, int line) {
-        assertThat(issue.ruleKey().rule()).isEqualTo("ESOB007");
+        assertThat(issue.ruleKey().rule()).isEqualTo("EC603");
         assertThat(issue.ruleKey().repository()).isEqualTo("ecoCode-swift");
         IssueLocation location = issue.primaryLocation();
         assertThat(location.textRange().start().line()).isEqualTo(line);

@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Check the use of "UIScreen.main.brightness" and triggers when set.
  */
-@Rule(key = "ESOB007")
+@Rule(key = "EC603")
 public class AnimationFreeCheck extends SwiftRuleCheck {
 
     private static final String DEFAULT_ISSUE_MESSAGE = "Usage of Animations must absolutely be avoided";
