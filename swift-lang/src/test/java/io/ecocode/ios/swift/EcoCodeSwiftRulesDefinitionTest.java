@@ -60,7 +60,7 @@ public class EcoCodeSwiftRulesDefinitionTest {
 
     @Test
     public void assertRuleProperties() {
-        Rule rule = repository.rule("ESOB007");
+        Rule rule = repository.rule("EC603");
         assertThat(rule).isNotNull();
         assertThat(rule.name()).isEqualTo("Animation Methods in UIKit and SwiftUI");
         assertThat(rule.debtRemediationFunction().type()).isEqualTo(Type.CONSTANT_ISSUE);

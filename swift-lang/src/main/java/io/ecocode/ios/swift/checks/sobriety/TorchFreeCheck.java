@@ -25,7 +25,7 @@ import org.sonar.check.Rule;
 /**
  * Check the use of "AVCaptureTorchMode.on", "setTorchModeOn(level: Float)", or "torchMode = .on" and triggers when set to true.
  */
-@Rule(key = "EC23")
+@Rule(key = "EC503")
 public class TorchFreeCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Usage of `AVCaptureDevice#torchMode` or `AVCaptureDevice#setTorchModeOn(level:)` must absolutely be avoided";
     @Override
