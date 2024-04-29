@@ -19,7 +19,11 @@ ecoCode iOS SonarQube plugin is an "eco-responsibility" static code analyzer for
 
 Ready to use binaries are available [from GitHub](https://github.com/green-code-initiative/ecoCode-ios/releases).
 
-NB: To work, `ecocode-ios` needs `Swift` language support in SonarQube. For *SonarQube Community Edition* (which does not support Swift language), you need to install an additional plugin like [sonar-apple](https://github.com/insideapp-oss/sonar-apple).
+> NB: To work, `ecocode-ios` needs `Swift` language support in SonarQube. For *SonarQube Community Edition* (which does not support Swift language), you need to install an additional plugin like [sonar-apple](https://github.com/insideapp-oss/sonar-apple).
+
+By default ecoCode profiles is not activated. To activate ecoCode rules in SonarQube, create a new profile (or extend and existing one) where ecoCode rules are activated. Here is an example:
+
+![Profiles](docs/resources/profiles.png)
 
 🚀 Development Quickstart
 -------------
