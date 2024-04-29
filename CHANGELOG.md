@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - [#207](https://github.com/green-code-initiative/ecoCode/issues/207) Add release tag analyzis on SonarCloud
+- [#23](https://github.com/green-code-initiative/ecoCode-ios/pull/23) Docker update (updated SonarQube and sonar-apple versions)
 
 ### Changed
 
