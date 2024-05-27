@@ -21,7 +21,7 @@ Ready to use binaries are available [from GitHub](https://github.com/green-code-
 
 > NB: To work, `ecocode-ios` needs `Swift` language support in SonarQube. For *SonarQube Community Edition* (which does not support Swift language), you need to install an additional plugin like [sonar-apple](https://github.com/insideapp-oss/sonar-apple).
 
-By default ecoCode profile is not activated. To activate ecoCode rules in SonarQube, create a new profile (or extend and existing one) where ecoCode rules are activated. Here is an example:
+By default ecoCode profile is not activated. To activate ecoCode rules in SonarQube, create a new profile (or extend an existing one) where ecoCode rules are activated. Here is an example:
 
 ![Profiles](docs/resources/profiles.png)
 
