@@ -67,7 +67,7 @@
         <jacoco.version>0.8.11</jacoco.version>
 
         <!-- Temporary version waiting for real automatic release in ecocode repository -->
-        <ecocode-rules-specifications.version>1.5.0</ecocode-rules-specifications.version>
+        <ecocode-rules-specifications.version>1.5.4</ecocode-rules-specifications.version>
 
     </properties>
 
