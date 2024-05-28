@@ -25,7 +25,13 @@ import org.sonarsource.analyzer.commons.RuleMetadataLoader;
 
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+
+/**
+ * Loads local rules definition.
+ * This should be removed once all rules are defined in the common rules repository (<a href="https://github.com/green-code-initiative/ecoCode/tree/main/ecocode-rules-specifications">...</a>)
+ */
 public class EcoCodeSwiftRulesDefinition implements RulesDefinition {
     private static final String RESOURCE_BASE_PATH = "io/ecocode/rules/swift";
 

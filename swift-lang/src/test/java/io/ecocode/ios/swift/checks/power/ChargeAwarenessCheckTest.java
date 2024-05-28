@@ -72,7 +72,7 @@ public final class ChargeAwarenessCheckTest {
         assertThat(context.allIssues()).hasSize(1);
         Optional<Issue> issue = context.allIssues().stream().findFirst();
         issue.ifPresent(i -> {
-            assertThat(i.ruleKey().rule()).isEqualTo("EPOW001");
+            assertThat(i.ruleKey().rule()).isEqualTo("EC519");
             assertThat(i.ruleKey().repository()).isEqualTo("ecoCode-swift");
             IssueLocation location = i.primaryLocation();
             assertThat(location.textRange().start().line()).isEqualTo(lineNumber);

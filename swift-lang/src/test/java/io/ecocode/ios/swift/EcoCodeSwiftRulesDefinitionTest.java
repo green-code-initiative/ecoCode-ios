@@ -54,15 +54,15 @@ public class EcoCodeSwiftRulesDefinitionTest {
     }
 
     @Test
-    public void testRegistredRules() {
+    public void testRegisteredRules() {
         assertThat(repository.rules()).hasSize(10);
     }
 
     @Test
     public void assertRuleProperties() {
-        Rule rule = repository.rule("EIDL001");
+        Rule rule = repository.rule("EC603");
         assertThat(rule).isNotNull();
-        assertThat(rule.name()).isEqualTo("Idle timer disabled");
+        assertThat(rule.name()).isEqualTo("Animation Free");
         assertThat(rule.debtRemediationFunction().type()).isEqualTo(Type.CONSTANT_ISSUE);
         assertThat(rule.debtRemediationFunction().baseEffort()).isEqualTo("5min");
         assertThat(rule.type()).isEqualTo(RuleType.CODE_SMELL);

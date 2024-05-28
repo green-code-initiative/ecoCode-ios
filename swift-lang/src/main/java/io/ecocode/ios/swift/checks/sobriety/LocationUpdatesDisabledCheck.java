@@ -17,7 +17,6 @@
  */
 package io.ecocode.ios.swift.checks.sobriety;
 
-import io.ecocode.ios.checks.RuleCheck;
 import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -27,7 +26,7 @@ import org.sonar.check.Rule;
 /**
  * Check the use of "CLLocationManager#pausesLocationUpdatesAutomatically" and triggers when set to false.
  */
-@Rule(key = "ESOB001")
+@Rule(key = "EC533")
 public class LocationUpdatesDisabledCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Do not disable location updates pause, unless absolutely necessary";
     @Override

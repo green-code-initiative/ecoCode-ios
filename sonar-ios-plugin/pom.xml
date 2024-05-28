@@ -16,7 +16,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.ecocode</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>ecocode-swift-lang</artifactId>
             <version>${project.version}</version>
         </dependency>

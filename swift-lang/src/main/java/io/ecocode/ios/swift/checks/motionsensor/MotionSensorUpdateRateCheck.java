@@ -17,7 +17,6 @@
  */
 package io.ecocode.ios.swift.checks.motionsensor;
 
-import io.ecocode.ios.checks.RuleCheck;
 import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -29,7 +28,7 @@ import java.util.List;
 
 import static io.ecocode.ios.swift.checks.CheckHelper.isImportExisting;
 
-@Rule(key="ESOB003")
+@Rule(key="EC534")
 public class MotionSensorUpdateRateCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Set appropriate motion sensor update rates for the application's needs";
     private Swift5Parser.Import_declarationContext importTree = null;

@@ -17,7 +17,6 @@
  */
 package io.ecocode.ios.swift.checks.power;
 
-import io.ecocode.ios.checks.RuleCheck;
 import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -25,7 +24,7 @@ import org.sonar.check.Rule;
 
 import java.util.List;
 
-@Rule(key = "EPOW002")
+@Rule(key = "EC520")
 public class SaveModeAwarenessCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Taking into account when the device is entering or exiting the power save mode is a good practice";
     private static final String PROCESS_INFO = "ProcessInfo.processInfo.isLowPowerModeEnabled";
