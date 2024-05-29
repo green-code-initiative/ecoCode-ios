@@ -33,7 +33,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LocationLeakCheckTest {
 
     private static final String TEST_CASE_MISSING_RELEASE_CALL = "checks/sobriety/LocationLeakCheck_missing_release_trigger.swift";
-
+    private static final String TEST_CASE_COMPLIANT = "checks/sobriety/LocationLeakCheck_compliant_no_trigger.swift";
     @Test
     public void locationLeakCheck_missing_release_trigger(){
         SensorContextTester context = CheckTestHelper.analyzeTestFile(TEST_CASE_MISSING_RELEASE_CALL);
@@ -47,5 +47,11 @@ public class LocationLeakCheckTest {
                 .extracting(TextRange::start)
                 .extracting(TextPointer::line)
                 .isEqualTo(11);
+    }
+
+    @Test
+    public void locationLeakCheck_compliant_no_trigger(){
+        SensorContextTester context = CheckTestHelper.analyzeTestFile(TEST_CASE_COMPLIANT);
+        assertThat(context.allIssues()).isEmpty();
     }
 }
