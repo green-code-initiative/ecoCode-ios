@@ -24,7 +24,7 @@ import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
 
 @Rule(key = "EC512")
-public class CameraLeak extends SwiftRuleCheck {
+public class CameraLeakCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Any started capture session should be stopped.";
     private boolean captureSessionStarted = false;
     private boolean captureSessionStopped = false;
