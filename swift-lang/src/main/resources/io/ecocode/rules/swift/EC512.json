@@ -1,0 +1,18 @@
+{
+    "key": "EC512",
+    "title": "Camera Leakage",
+    "defaultSeverity": "Major",
+    "description": "Any started capture session should be stopped.",
+    "status": "ready",
+    "remediation": {
+        "func": "Constant/Issue",
+        "constantCost": "5min"
+    },
+    "tags": [
+        "ecocode",
+        "environment",
+        "sobriety",
+        "eco-design"
+    ],
+    "type": "CODE_SMELL"
+}
