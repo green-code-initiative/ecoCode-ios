@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.checks.geolocalisation;
+package io.ecocode.ios.swift.checks.sobriety;
 
 import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
@@ -29,17 +29,15 @@ public class LocationLeakCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "calls must be carefully paired: CLLocationManager.startUpdatingLocation() and CLLocationManager.stopUpdatingLocation()";
     protected boolean firstCallExist = false;
     protected boolean secondCallExist = false;
-    protected Swift5Parser.Postfix_expressionContext id;
+    protected Swift5Parser.ExpressionContext id;
 
     @Override
     public void apply(ParseTree tree) {
 
-        System.out.println(tree.getClass().getName());
-
 
         if (tree instanceof Swift5Parser.ExpressionContext && (tree.getText().contains(".startUpdatingLocation()"))) {
             firstCallExist = true;
-            id = (Swift5Parser.Postfix_expressionContext) tree;
+            id = (Swift5Parser.ExpressionContext) tree;
         }
 
         if (tree instanceof Swift5Parser.ExpressionContext && (tree.getText().contains(".stopUpdatingLocation()"))) {
@@ -48,7 +46,6 @@ public class LocationLeakCheck extends SwiftRuleCheck {
 
         if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
             if (firstCallExist && !secondCallExist) {
-                System.out.println("ok");
                 this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
             firstCallExist = false;

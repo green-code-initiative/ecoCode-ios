@@ -39,7 +39,7 @@ public class LocationLeakCheckTest {
         SensorContextTester context = CheckTestHelper.analyzeTestFile(TEST_CASE_MISSING_RELEASE_CALL);
         ObjectAssert<Issue> issue = assertThat(context.allIssues()).hasSize(1)
                 .first();
-        issue.extracting(Issue::ruleKey).isEqualTo("EC513");
+        issue.extracting(Issue::ruleKey).extracting(RuleKey::rule).isEqualTo("EC513");
         issue.extracting(Issue::ruleKey).extracting(RuleKey::repository)
                 .isEqualTo("ecoCode-swift");
         issue.extracting(Issue::primaryLocation)
