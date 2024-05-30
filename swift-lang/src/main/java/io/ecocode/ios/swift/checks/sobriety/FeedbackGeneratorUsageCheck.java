@@ -17,21 +17,17 @@
  */
 package io.ecocode.ios.swift.checks.sobriety;
 
-import io.ecocode.ios.swift.EcoCodeSwiftVisitor;
 import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import io.ecocode.ios.swift.checks.CheckHelper;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
-import org.sonar.api.utils.log.Logger;
-import org.sonar.api.utils.log.Loggers;
 import org.sonar.check.Rule;
 
 import java.util.Objects;
 
 @Rule(key = "EC528")
 public class FeedbackGeneratorUsageCheck extends SwiftRuleCheck {
-    private static final Logger LOGGER = Loggers.get(EcoCodeSwiftVisitor.class);
     private static final String DEFAULT_ISSUE_MESSAGE = "Avoid using the device vibrator to use less energy.";
     public static final String UI_KIT = "UIKit";
     protected boolean isUIKitImported;
@@ -46,12 +42,14 @@ public class FeedbackGeneratorUsageCheck extends SwiftRuleCheck {
 
         isUIKitImported = isUIKitImported || CheckHelper.isImportExisting(tree, UI_KIT);
 
-        isFeedbackGeneratorInstantiated = isFeedbackGeneratorInstantiated || (isUIKitImported &&
-                tree instanceof Swift5Parser.ExpressionContext &&
-                (tree.getText().contains("UIImpactFeedbackGenerator")));
+        isFeedbackGeneratorInstantiated = isFeedbackGeneratorInstantiated ||
+                (isUIKitImported &&
+                        tree instanceof Swift5Parser.ExpressionContext &&
+                        (tree.getText().contains("UIImpactFeedbackGenerator")));
 
-        isImpactMethodCalled = isImpactMethodCalled || (isFeedbackGeneratorInstantiated &&
-                (tree.getText().contains(".impactOccurred(")));
+        isImpactMethodCalled = isImpactMethodCalled ||
+                (isFeedbackGeneratorInstantiated &&
+                        (tree.getText().contains(".impactOccurred(")));
 
         if (Objects.isNull(id) &&
                 tree instanceof Swift5Parser.ExpressionContext &&
