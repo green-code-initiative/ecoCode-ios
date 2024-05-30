@@ -22,23 +22,25 @@ import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
 
+import static io.ecocode.ios.swift.checks.CheckHelper.isExpressionPresent;
+import static io.ecocode.ios.swift.checks.CheckHelper.isFunctionCalled;
+
 /**
  * Check the use of "AVCaptureTorchMode.on", "setTorchModeOn(level: Float)", or "torchMode = .on" and triggers when set to true.
  */
 @Rule(key = "EC530")
 public class TorchFreeCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Usage of `AVCaptureDevice#torchMode` or `AVCaptureDevice#setTorchModeOn(level:)` must absolutely be avoided";
+
     @Override
     public void apply(ParseTree tree) {
-
-        if (tree instanceof Swift5Parser.ExpressionContext) {
-            Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
-            String expressionText = id.getText();
-            if (expressionText.contains("AVCaptureTorchMode.on") ||
-                expressionText.contains("setTorchModeOn") ||
-                expressionText.contains("torchMode=.on")) {
+            if (
+                    isExpressionPresent(tree, "AVCaptureTorchMode.on") ||
+                            isExpressionPresent(tree, "torchMode=.on") ||
+                            isFunctionCalled(tree, "setTorchModeOn")
+            ) {
+                Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
                 this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
         }
-    }
 }

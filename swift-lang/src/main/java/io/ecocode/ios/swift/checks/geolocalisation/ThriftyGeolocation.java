@@ -23,7 +23,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
 
-import static io.ecocode.ios.swift.checks.CheckHelper.isImportExisting;
+import static io.ecocode.ios.swift.checks.CheckHelper.*;
 
 @Rule(key = "EC524")
 public class ThriftyGeolocation extends SwiftRuleCheck {
@@ -39,13 +39,11 @@ public class ThriftyGeolocation extends SwiftRuleCheck {
             importExist = true;
         }
 
-        if (!geolocationUpdated
-            && tree instanceof Swift5Parser.ExpressionContext
-            && (tree.getText().contains("desiredAccuracy") || tree.getText().contains("CLActivityType"))) {
-            geolocationUpdated = true;
-        }
+        geolocationUpdated = geolocationUpdated ||
+                (isExpressionPresent(tree, "desiredAccuracy") ||
+                isExpressionPresent(tree, "CLActivityType"));
 
-        if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
+        if (isEndOfFile(tree)) {
             if (importExist && !geolocationUpdated) {
                 this.recordIssue(importTree.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }

@@ -26,7 +26,7 @@ import org.sonar.check.Rule;
 import java.util.Arrays;
 import java.util.List;
 
-import static io.ecocode.ios.swift.checks.CheckHelper.isImportExisting;
+import static io.ecocode.ios.swift.checks.CheckHelper.*;
 
 @Rule(key="EC534")
 public class MotionSensorUpdateRateCheck extends SwiftRuleCheck {
@@ -43,12 +43,10 @@ public class MotionSensorUpdateRateCheck extends SwiftRuleCheck {
             importTree = (Swift5Parser.Import_declarationContext) tree;
             importExist = true;
         }
+        sensorRateUpdated = sensorRateUpdated || sensorRateUpdateExpressions.stream()
+                .anyMatch(exp -> isExpressionPresent(tree, exp));
 
-        if (!sensorRateUpdated && tree instanceof Swift5Parser.ExpressionContext) {
-            sensorRateUpdated = sensorRateUpdateExpressions.stream().anyMatch(exp -> tree.getText().contains(exp));
-        }
-
-        if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
+        if (isEndOfFile(tree)) {
             if (importExist && !sensorRateUpdated) {
                 this.recordIssue(importTree.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }

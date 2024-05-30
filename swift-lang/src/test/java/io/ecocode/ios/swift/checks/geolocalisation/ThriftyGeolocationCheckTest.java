@@ -47,4 +47,10 @@ public class ThriftyGeolocationCheckTest {
         SensorContextTester context = CheckTestHelper.analyzeTestFile("checks/geolocalisation/Geolocalisation_no_trigger.swift");
         assertThat(context.allIssues()).isEmpty();
     }
+
+    @Test
+    public void Geo_no_trigger_on_desired_accuracy() {
+        SensorContextTester context = CheckTestHelper.analyzeTestFile("checks/geolocalisation/Geolocalisation_no_trigger_desired_accuracy.swift");
+        assertThat(context.allIssues()).isEmpty();
+    }
 }

@@ -23,6 +23,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
 
+import static io.ecocode.ios.swift.checks.CheckHelper.isEndOfFile;
+import static io.ecocode.ios.swift.checks.CheckHelper.isExpressionPresent;
+
 @Rule(key = "EC512")
 public class CameraLeakCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Any started capture session should be stopped.";
@@ -32,17 +35,16 @@ public class CameraLeakCheck extends SwiftRuleCheck {
 
     @Override
     public void apply(ParseTree tree) {
-        if (tree instanceof Swift5Parser.ExpressionContext && tree.getText().contains("startRunning")) {
+        if (isExpressionPresent(tree,"startRunning")) {
             id = (Swift5Parser.ExpressionContext) tree;
             captureSessionStarted = true;
         }
 
-        if (tree instanceof Swift5Parser.ExpressionContext
-                && (tree.getText().contains("stopRunning"))) {
+        if (isExpressionPresent(tree,"stopRunning")) {
             captureSessionStopped = true;
         }
 
-        if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
+        if (isEndOfFile(tree)) {
             if (captureSessionStarted && !captureSessionStopped) {
                 this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }

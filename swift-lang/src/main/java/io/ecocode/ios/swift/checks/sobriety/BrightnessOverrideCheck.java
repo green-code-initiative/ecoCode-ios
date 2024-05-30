@@ -22,6 +22,8 @@ import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
 
+import static io.ecocode.ios.swift.checks.CheckHelper.isExpressionPresent;
+
 /**
  * Check the use of "UIScreen.main.brightness" and triggers when set.
  */
@@ -31,11 +33,9 @@ public class BrightnessOverrideCheck extends SwiftRuleCheck {
     @Override
     public void apply(ParseTree tree) {
 
-    if (tree instanceof Swift5Parser.ExpressionContext) {
-        Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
-        if (id.getText().contains("UIScreen.main.brightness")) {
+        if (isExpressionPresent(tree,"UIScreen.main.brightness")) {
+            Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
             this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
         }
     }
-}
 }

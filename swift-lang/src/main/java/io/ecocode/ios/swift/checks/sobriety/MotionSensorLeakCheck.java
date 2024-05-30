@@ -23,6 +23,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
 
+import static io.ecocode.ios.swift.checks.CheckHelper.isEndOfFile;
+import static io.ecocode.ios.swift.checks.CheckHelper.isFunctionCalled;
+
 @Rule(key = "EC514")
 public class MotionSensorLeakCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Any motion sensor started should be stopped.";
@@ -32,17 +35,16 @@ public class MotionSensorLeakCheck extends SwiftRuleCheck {
 
     @Override
     public void apply(ParseTree tree) {
-        if (tree instanceof Swift5Parser.ExpressionContext && tree.getText().contains("startAccelerometerUpdates")) {
+        if (isFunctionCalled(tree,"startAccelerometerUpdates")) {
             id = (Swift5Parser.ExpressionContext) tree;
             motionSensorStarted = true;
         }
 
-        if (tree instanceof Swift5Parser.ExpressionContext
-                && (tree.getText().contains("stopAccelerometerUpdates"))) {
+        if (isFunctionCalled(tree,"stopAccelerometerUpdates")) {
             motionSensorStopped = true;
         }
 
-        if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
+        if (isEndOfFile(tree)) {
             if (motionSensorStarted && !motionSensorStopped) {
                 this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }

@@ -22,6 +22,8 @@ import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
 
+import static io.ecocode.ios.swift.checks.CheckHelper.isExpressionPresent;
+
 
 /**
  * Check the use of "CLLocationManager#pausesLocationUpdatesAutomatically" and triggers when set to false.
@@ -29,13 +31,13 @@ import org.sonar.check.Rule;
 @Rule(key = "EC533")
 public class LocationUpdatesDisabledCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Do not disable location updates pause, unless absolutely necessary";
+    public static final String LOCATION_UPDATES_DISABLE_EXPRESSION = ".pausesLocationUpdatesAutomatically=false";
+
     @Override
     public void apply(ParseTree tree) {
-        if (tree instanceof Swift5Parser.ExpressionContext) {
+        if(isExpressionPresent(tree, LOCATION_UPDATES_DISABLE_EXPRESSION)){
             Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
-            if (id.getText().contains(".pausesLocationUpdatesAutomatically=false")) {
-                this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
-            }
+            this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
         }
     }
 }
