@@ -34,7 +34,6 @@ public class LocationLeakCheck extends SwiftRuleCheck {
     @Override
     public void apply(ParseTree tree) {
 
-
         if (tree instanceof Swift5Parser.ExpressionContext && (tree.getText().contains(".startUpdatingLocation()"))) {
             firstCallExist = true;
             id = (Swift5Parser.ExpressionContext) tree;
