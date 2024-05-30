@@ -39,26 +39,27 @@ public class AudioRecorderLeakCheck extends SwiftRuleCheck {
         }
 
         if (importExist) {
-            if (tree instanceof Swift5Parser.ExpressionContext && tree.getText().contains("record()")) {
-                id = (Swift5Parser.ExpressionContext) tree;
-                audioRecorderStarted = true;
-            }
+            findStartedButNotStoppedAudioRecord(tree);
+        }
+    }
 
-            if (tree instanceof Swift5Parser.ExpressionContext
-                    && (tree.getText().contains("stop()"))) {
-                audioRecorderStopped = true;
-            }
+    private void findStartedButNotStoppedAudioRecord(ParseTree tree) {
+        if (tree instanceof Swift5Parser.ExpressionContext && tree.getText().contains("record()")) {
+            id = (Swift5Parser.ExpressionContext) tree;
+            audioRecorderStarted = true;
+        }
 
-            if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
-                if (audioRecorderStarted && !audioRecorderStopped) {
-                    this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
-                }
-                audioRecorderStarted = false;
-                audioRecorderStopped = false;
-                importExist = false;
+        if (tree instanceof Swift5Parser.ExpressionContext && (tree.getText().contains("stop()"))) {
+            audioRecorderStopped = true;
+        }
+
+        if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
+            if (audioRecorderStarted && !audioRecorderStopped) {
+                this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
+            audioRecorderStarted = false;
+            audioRecorderStopped = false;
+            importExist = false;
         }
     }
 }
-
-
