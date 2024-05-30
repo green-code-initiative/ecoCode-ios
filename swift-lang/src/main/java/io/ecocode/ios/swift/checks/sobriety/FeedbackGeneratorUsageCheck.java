@@ -19,36 +19,53 @@ package io.ecocode.ios.swift.checks.sobriety;
 
 import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
+import io.ecocode.ios.swift.checks.CheckHelper;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
 
+import java.util.Objects;
 
-@Rule(key = "EC513")
-public class LocationLeakCheck extends SwiftRuleCheck {
-    private static final String DEFAULT_ISSUE_MESSAGE = "calls must be carefully paired: CLLocationManager.startUpdatingLocation() and CLLocationManager.stopUpdatingLocation()";
-    protected boolean firstCallExist = false;
-    protected boolean secondCallExist = false;
+@Rule(key = "EC528")
+public class FeedbackGeneratorUsageCheck extends SwiftRuleCheck {
+    private static final String DEFAULT_ISSUE_MESSAGE = "Avoid using the device vibrator to use less energy.";
+    public static final String UI_KIT = "UIKit";
+    protected boolean isUIKitImported;
+
     protected Swift5Parser.ExpressionContext id;
+
+    protected boolean isFeedbackGeneratorInstantiated;
+    protected boolean isImpactMethodCalled;
 
     @Override
     public void apply(ParseTree tree) {
 
-        if (tree instanceof Swift5Parser.ExpressionContext && (tree.getText().contains(".startUpdatingLocation()"))) {
-            firstCallExist = true;
+        isUIKitImported = isUIKitImported || CheckHelper.isImportExisting(tree, UI_KIT);
+
+        isFeedbackGeneratorInstantiated = isFeedbackGeneratorInstantiated ||
+                (isUIKitImported &&
+                        tree instanceof Swift5Parser.ExpressionContext &&
+                        (tree.getText().contains("UIImpactFeedbackGenerator")));
+
+        isImpactMethodCalled = isImpactMethodCalled ||
+                (isFeedbackGeneratorInstantiated &&
+                        (tree.getText().contains(".impactOccurred(")));
+
+        if (Objects.isNull(id) &&
+                tree instanceof Swift5Parser.ExpressionContext &&
+                isImpactMethodCalled
+        ) {
             id = (Swift5Parser.ExpressionContext) tree;
         }
 
-        if (tree instanceof Swift5Parser.ExpressionContext && (tree.getText().contains(".stopUpdatingLocation()"))) {
-            secondCallExist = true;
-        }
-
         if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
-            if (firstCallExist && !secondCallExist) {
+            if (isImpactMethodCalled) {
                 this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
-            firstCallExist = false;
-            secondCallExist = false;
+            isUIKitImported = false;
+            isFeedbackGeneratorInstantiated = false;
+            isImpactMethodCalled = false;
         }
     }
 }
+

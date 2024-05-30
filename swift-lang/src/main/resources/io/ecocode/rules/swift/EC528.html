@@ -1,0 +1,14 @@
+<p>
+    Shaking or vibrating an iOS device is possible using <code>UIFeedbackGenerator.</code>
+    Behind this effect stands a specific hardware component, the Taptic Engine, which consumes power.
+    As a consequence, its usage should be carefully considered, especially if its added value is not clear.
+<h2>Noncompliant Code Example</h2>
+
+<pre>
+    import UIKit
+
+    func triggerVibration() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+    }
+</pre>

@@ -1,0 +1,18 @@
+{
+  "key": "EC528",
+  "title": "Sobriety: Vibration Free",
+  "defaultSeverity": "Major",
+  "description": "Avoid using the device vibrator to use less energy.",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant/Issue",
+    "constantCost": "5min"
+  },
+  "tags": [
+    "ecocode",
+    "environment",
+    "sobriety",
+    "eco-design"
+  ],
+  "type": "CODE_SMELL"
+}
