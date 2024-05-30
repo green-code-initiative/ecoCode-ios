@@ -1,0 +1,130 @@
+<p>Creation of an <code>AVAudioRecorder</code> or <code>AVCaptureSession</code> object is used to record audio and
+    video. These classes have methods to stop recording and release resources.
+
+    In addition to unnecessary resources (such as memory and instances of codecs) being held, failure to properly stop
+    and release these objects if they are no longer needed may also lead to continuous battery consumption for mobile
+    devices.</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+import AVFoundation
+
+var audioRecorder: AVAudioRecorder?
+
+func startRecording() {
+    let settings = [
+        AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+        AVSampleRateKey: 12000,
+        AVNumberOfChannelsKey: 1,
+        AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+    ]
+
+    do {
+        audioRecorder = try AVAudioRecorder(url: getDocumentsDirectory().appendingPathComponent("recording.m4a"), settings: settings)
+        audioRecorder?.record()
+    } catch {
+        // Handle error
+    }
+}
+</pre>
+<br>
+<h2>Noncompliant Code Example</h2>
+<pre>
+import AVFoundation
+
+var captureSession: AVCaptureSession?
+
+func startVideoRecording() {
+    captureSession = AVCaptureSession()
+    captureSession?.beginConfiguration()
+
+    let videoDevice = AVCaptureDevice.default(for: .video)
+    let audioDevice = AVCaptureDevice.default(for: .audio)
+
+    do {
+        let videoInput = try AVCaptureDeviceInput(device: videoDevice!)
+        let audioInput = try AVCaptureDeviceInput(device: audioDevice!)
+
+        if (captureSession?.canAddInput(videoInput) ?? false) {
+            captureSession?.addInput(videoInput)
+        }
+
+        if (captureSession?.canAddInput(audioInput) ?? false) {
+            captureSession?.addInput(audioInput)
+        }
+
+        captureSession?.commitConfiguration()
+        captureSession?.startRunning()
+    } catch {
+        // Handle error
+    }
+}
+</pre>
+<br>
+<h2>Compliant Code Example</h2>
+<pre>
+import AVFoundation
+
+var audioRecorder: AVAudioRecorder?
+
+func startRecording() {
+    let settings = [
+        AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+        AVSampleRateKey: 12000,
+        AVNumberOfChannelsKey: 1,
+        AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+    ]
+
+    do {
+        audioRecorder = try AVAudioRecorder(url: getDocumentsDirectory().appendingPathComponent("recording.m4a"), settings: settings)
+        audioRecorder?.record()
+    } catch {
+        // Handle error
+    }
+}
+
+func stopRecording() {
+    if let recorder = audioRecorder, recorder.isRecording {
+        recorder.stop()
+        audioRecorder = nil
+    }
+}
+</pre>
+<h2>Compliant Code Example</h2>
+<pre>
+import AVFoundation
+
+var captureSession: AVCaptureSession?
+
+func startVideoRecording() {
+    captureSession = AVCaptureSession()
+    captureSession?.beginConfiguration()
+
+    let videoDevice = AVCaptureDevice.default(for: .video)
+    let audioDevice = AVCaptureDevice.default(for: .audio)
+
+    do {
+        let videoInput = try AVCaptureDeviceInput(device: videoDevice!)
+        let audioInput = try AVCaptureDeviceInput(device: audioDevice!)
+
+        if (captureSession?.canAddInput(videoInput) ?? false) {
+            captureSession?.addInput(videoInput)
+        }
+
+        if (captureSession?.canAddInput(audioInput) ?? false) {
+            captureSession?.addInput(audioInput)
+        }
+
+        captureSession?.commitConfiguration()
+        captureSession?.startRunning()
+    } catch {
+        // Handle error
+    }
+}
+
+func stopVideoRecording() {
+    if let session = captureSession, session.isRunning {
+        session.stopRunning()
+        captureSession = nil
+    }
+}
+</pre>
