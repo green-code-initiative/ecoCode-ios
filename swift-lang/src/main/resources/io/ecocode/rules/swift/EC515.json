@@ -1,0 +1,19 @@
+{
+	"key": "EC515",
+	"title": "Leakage: Audio and Video Recorder Leak",
+	"defaultSeverity": "Major",
+	"description": "Creation of an AVAudioRecorder object is used to record audio. This class has methods to stop recording and release resources. In addition to unnecessary resources (such as memory and instances of codecs) being held, failure to properly stop and release these objects if they are no longer needed may also lead to continuous battery consumption for mobile devices.",
+	"status": "ready",
+	"remediation": {
+	  "func": "Constant/Issue",
+	  "constantCost": "7min"
+	},
+	"tags": [
+	  "sobriety",
+	  "environment",
+	  "ecocode",
+	  "eco-design"
+	],
+	"type": "CODE_SMELL"
+  }
+  
