@@ -54,8 +54,8 @@ public class EcoCodeSwiftRulesDefinitionTest {
     }
 
     @Test
-    public void testRegistredRules() {
-        assertThat(repository.rules()).hasSize(12);
+    public void testRegisteredRules() {
+        assertThat(repository.rules()).hasSize(13);
     }
 
     @Test
