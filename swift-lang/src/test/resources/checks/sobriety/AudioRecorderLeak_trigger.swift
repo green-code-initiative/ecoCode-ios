@@ -17,10 +17,3 @@ func startRecording() {
         // Handle error
     }
 }
-
-func stopRecording() {
-    if let recorder = audioRecorder, recorder.isRecording {
-        recorder.stop()
-        audioRecorder = nil
-    }
-}
