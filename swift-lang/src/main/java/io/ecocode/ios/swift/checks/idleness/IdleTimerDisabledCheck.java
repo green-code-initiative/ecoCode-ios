@@ -22,6 +22,8 @@ import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
 
+import static io.ecocode.ios.swift.checks.CheckHelper.isExpressionPresent;
+
 /**
  * Check the use of "UIApplication.shared.isIdleTimerDisabled" and triggers when set to true.
  */
@@ -31,12 +33,9 @@ public class IdleTimerDisabledCheck extends SwiftRuleCheck {
 
     @Override
     public void apply(ParseTree tree) {
-
-        if (tree instanceof Swift5Parser.ExpressionContext) {
+        if (isExpressionPresent(tree,"UIApplication.shared.isIdleTimerDisabled=true")) {
             Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
-            if (id.getText().equals("UIApplication.shared.isIdleTimerDisabled=true")) {
-                this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
-            }
+            this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
         }
     }
 }

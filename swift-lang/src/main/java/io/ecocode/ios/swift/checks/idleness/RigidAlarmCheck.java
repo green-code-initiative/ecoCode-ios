@@ -38,5 +38,4 @@ public class RigidAlarmCheck extends SwiftRuleCheck {
             }
         }
     }
-
 }

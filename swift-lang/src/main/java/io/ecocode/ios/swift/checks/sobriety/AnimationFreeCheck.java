@@ -25,6 +25,8 @@ import org.sonar.check.Rule;
 import java.util.Arrays;
 import java.util.List;
 
+import static io.ecocode.ios.swift.checks.CheckHelper.isExpressionPresent;
+
 
 /**
  * Check the use of "UIScreen.main.brightness" and triggers when set.
@@ -43,16 +45,12 @@ public class AnimationFreeCheck extends SwiftRuleCheck {
 
     public void apply(ParseTree tree) {
         if (tree instanceof Swift5Parser.ExpressionContext) {
-            Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
-            String expressionText = id.getText();
-    
             boolean containsAnimationMethod = ANIMATION_METHODS.stream()
-                                                .anyMatch(expressionText::contains);
-    
+                                                .anyMatch(animation -> isExpressionPresent(tree, animation));
              boolean containsUISwiftAnimationMethod = SWIFTUI_ANIMATION_METHODS.stream()
-                                                .anyMatch(expressionText::contains);             
-
+                                                .anyMatch(animation -> isExpressionPresent(tree, animation));
             if (containsAnimationMethod || containsUISwiftAnimationMethod) {
+                Swift5Parser.ExpressionContext id = (Swift5Parser.ExpressionContext) tree;
                 this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
         }

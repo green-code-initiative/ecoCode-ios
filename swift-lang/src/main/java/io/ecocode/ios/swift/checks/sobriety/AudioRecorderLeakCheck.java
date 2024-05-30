@@ -23,6 +23,8 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
 
+import static io.ecocode.ios.swift.checks.CheckHelper.*;
+
 @Rule(key = "EC515")
 public class AudioRecorderLeakCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Any audio recording started should be stopped.";
@@ -30,35 +32,36 @@ public class AudioRecorderLeakCheck extends SwiftRuleCheck {
     private boolean audioRecorderStarted = false;
     private boolean audioRecorderStopped = false;
     private boolean importExist = false;
+    private boolean isAudioRecorderUsed = false;
 
 
     @Override
     public void apply(ParseTree tree) {
-        if (!importExist && tree instanceof Swift5Parser.ExpressionContext && tree.getText().contains("AVAudioRecorder")) {
-            importExist = true;
-        }
+        importExist = importExist || isImportExisting(tree, "AVFoundation");
+        isAudioRecorderUsed = isAudioRecorderUsed || (importExist && isExpressionPresent(tree, "AVAudioRecorder"));
 
-        if (importExist) {
+        if (isAudioRecorderUsed) {
             findStartedButNotStoppedAudioRecord(tree);
         }
     }
 
     private void findStartedButNotStoppedAudioRecord(ParseTree tree) {
-        if (tree instanceof Swift5Parser.ExpressionContext && tree.getText().contains("record()")) {
+        if (isFunctionCalled(tree, "record")) {
             id = (Swift5Parser.ExpressionContext) tree;
             audioRecorderStarted = true;
         }
 
-        if (tree instanceof Swift5Parser.ExpressionContext && (tree.getText().contains("stop()"))) {
+        if (isFunctionCalled(tree, "stop")) {
             audioRecorderStopped = true;
         }
 
-        if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
+        if (isEndOfFile(tree)) {
             if (audioRecorderStarted && !audioRecorderStopped) {
                 this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
             audioRecorderStarted = false;
             audioRecorderStopped = false;
+            isAudioRecorderUsed = false;
             importExist = false;
         }
     }

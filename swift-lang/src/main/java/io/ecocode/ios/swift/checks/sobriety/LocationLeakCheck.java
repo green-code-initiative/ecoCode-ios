@@ -20,13 +20,17 @@ package io.ecocode.ios.swift.checks.sobriety;
 import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
+
+import static io.ecocode.ios.swift.checks.CheckHelper.isEndOfFile;
+import static io.ecocode.ios.swift.checks.CheckHelper.isFunctionCalled;
 
 
 @Rule(key = "EC513")
 public class LocationLeakCheck extends SwiftRuleCheck {
-    private static final String DEFAULT_ISSUE_MESSAGE = "calls must be carefully paired: CLLocationManager.startUpdatingLocation() and CLLocationManager.stopUpdatingLocation()";
+    public static final String START_UPDATING_LOCATION_METHOD = "startUpdatingLocation";
+    public static final String STOP_UPDATING_LOCATION_METHOD = "stopUpdatingLocation";
+    private static final String DEFAULT_ISSUE_MESSAGE = "calls must be carefully paired: CLLocationManager." + START_UPDATING_LOCATION_METHOD + "() and CLLocationManager." + STOP_UPDATING_LOCATION_METHOD + "()";
     protected boolean firstCallExist = false;
     protected boolean secondCallExist = false;
     protected Swift5Parser.ExpressionContext id;
@@ -34,16 +38,16 @@ public class LocationLeakCheck extends SwiftRuleCheck {
     @Override
     public void apply(ParseTree tree) {
 
-        if (tree instanceof Swift5Parser.ExpressionContext && (tree.getText().contains(".startUpdatingLocation()"))) {
+        if (isFunctionCalled(tree, START_UPDATING_LOCATION_METHOD)) {
             firstCallExist = true;
             id = (Swift5Parser.ExpressionContext) tree;
         }
 
-        if (tree instanceof Swift5Parser.ExpressionContext && (tree.getText().contains(".stopUpdatingLocation()"))) {
+        if (isFunctionCalled(tree, STOP_UPDATING_LOCATION_METHOD)) {
             secondCallExist = true;
         }
 
-        if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
+        if (isEndOfFile(tree)) {
             if (firstCallExist && !secondCallExist) {
                 this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }

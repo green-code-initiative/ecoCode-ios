@@ -19,17 +19,19 @@ package io.ecocode.ios.swift.checks.sobriety;
 
 import io.ecocode.ios.swift.SwiftRuleCheck;
 import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
-import io.ecocode.ios.swift.checks.CheckHelper;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
 
 import java.util.Objects;
+
+import static io.ecocode.ios.swift.checks.CheckHelper.*;
 
 @Rule(key = "EC528")
 public class FeedbackGeneratorUsageCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Avoid using the device vibrator to use less energy.";
     public static final String UI_KIT = "UIKit";
+    public static final String IMPACT_OCCURRED = "impactOccurred";
+    public static final String UI_IMPACT_FEEDBACK_GENERATOR_CLASS = "UIImpactFeedbackGenerator";
     protected boolean isUIKitImported;
 
     protected Swift5Parser.ExpressionContext id;
@@ -40,16 +42,15 @@ public class FeedbackGeneratorUsageCheck extends SwiftRuleCheck {
     @Override
     public void apply(ParseTree tree) {
 
-        isUIKitImported = isUIKitImported || CheckHelper.isImportExisting(tree, UI_KIT);
+        isUIKitImported = isUIKitImported || isImportExisting(tree, UI_KIT);
 
         isFeedbackGeneratorInstantiated = isFeedbackGeneratorInstantiated ||
                 (isUIKitImported &&
-                        tree instanceof Swift5Parser.ExpressionContext &&
-                        (tree.getText().contains("UIImpactFeedbackGenerator")));
+                        isExpressionPresent(tree, UI_IMPACT_FEEDBACK_GENERATOR_CLASS));
 
         isImpactMethodCalled = isImpactMethodCalled ||
                 (isFeedbackGeneratorInstantiated &&
-                        (tree.getText().contains(".impactOccurred(")));
+                        isFunctionCalled(tree, IMPACT_OCCURRED));
 
         if (Objects.isNull(id) &&
                 tree instanceof Swift5Parser.ExpressionContext &&
@@ -58,7 +59,7 @@ public class FeedbackGeneratorUsageCheck extends SwiftRuleCheck {
             id = (Swift5Parser.ExpressionContext) tree;
         }
 
-        if (tree instanceof TerminalNodeImpl && tree.getText().equals("<EOF>")) {
+        if (isEndOfFile(tree)) {
             if (isImpactMethodCalled) {
                 this.recordIssue(id.getStart().getStartIndex(), DEFAULT_ISSUE_MESSAGE);
             }
