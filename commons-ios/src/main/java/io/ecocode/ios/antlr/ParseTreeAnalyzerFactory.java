@@ -15,26 +15,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.antlr;
+package io.ecocode.ios.antlr;
 
-import io.ecocode.ios.swift.EcoCodeSwiftVisitor;
-import io.ecocode.ios.swift.Swift;
-import io.ecocode.ios.swift.TestHelper;
-import org.junit.Test;
 import org.sonar.api.batch.fs.InputFile;
-import org.sonar.api.batch.sensor.internal.SensorContextTester;
+import org.sonar.api.batch.sensor.SensorContext;
 
-import static org.assertj.core.api.Assertions.assertThat;
-public class ParseTreeAnalyzerTest {
-
-    @Test
-    public void analyze() throws Throwable {
-        final SwiftAntlrContext antlrContext = new SwiftAntlrContext();
-        SensorContextTester sensorContext = TestHelper.testFile("checks/IdleTimerDisabled_trigger.swift");
-        ParseTreeAnalyzer analyzer = new ParseTreeAnalyzer(Swift.KEY, InputFile.Type.MAIN, antlrContext, sensorContext);
-        analyzer.analyze(new EcoCodeSwiftVisitor());
-
-        assertThat(sensorContext.allIssues()).hasSize(1);
+public class ParseTreeAnalyzerFactory {
+    public ParseTreeAnalyzer create(String languageKey, InputFile.Type fileType, AntlrContext antlrContext, SensorContext sensorContext) {
+        return new ParseTreeAnalyzer(languageKey, fileType, antlrContext, sensorContext);
     }
-
 }

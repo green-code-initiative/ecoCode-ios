@@ -15,10 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.antlr;
 
-import io.ecocode.ios.antlr.AntlrContext;
-import io.ecocode.ios.antlr.ParseTreeItemVisitor;
+package io.ecocode.ios.antlr;
+
 import org.sonar.api.batch.fs.FilePredicate;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.fs.InputFile.Type;
@@ -45,6 +44,10 @@ public class ParseTreeAnalyzer {
         this.sensorContext = sensorContext;
     }
 
+    protected CustomTreeVisitor createVisitor(ParseTreeItemVisitor... visitors) {
+        return new CustomTreeVisitor(visitors);
+    }
+
     public void analyze(final ParseTreeItemVisitor... visitors) {
 
         FilePredicate hasLang = sensorContext.fileSystem().predicates().hasLanguage(languageKey);
@@ -53,11 +56,10 @@ public class ParseTreeAnalyzer {
         final Charset charset = sensorContext.fileSystem().encoding();
 
         for (InputFile inf : sensorContext.fileSystem().inputFiles(langAndType)) {
-
             // Visit source files
             try {
                 antlrContext.loadFromFile(inf, charset);
-                ParseTreeItemVisitor visitor = new CustomTreeVisitor(visitors);
+                ParseTreeItemVisitor visitor = createVisitor(visitors);
                 visitor.fillContext(sensorContext, antlrContext);
             } catch (IOException e) {
                 LOGGER.warn("Unexpected error while analyzing file " + inf.filename(), e);

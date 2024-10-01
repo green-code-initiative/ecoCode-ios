@@ -15,10 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.antlr;
 
-import io.ecocode.ios.antlr.AntlrContext;
-import io.ecocode.ios.antlr.ParseTreeItemVisitor;
+package io.ecocode.ios.antlr;
+
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.api.batch.sensor.SensorContext;

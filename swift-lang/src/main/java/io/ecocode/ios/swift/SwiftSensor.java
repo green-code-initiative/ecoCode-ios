@@ -17,7 +17,7 @@
  */
 package io.ecocode.ios.swift;
 
-import io.ecocode.ios.swift.antlr.ParseTreeAnalyzer;
+import io.ecocode.ios.antlr.ParseTreeAnalyzer;
 import io.ecocode.ios.swift.antlr.SwiftAntlrContext;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.sensor.Sensor;
