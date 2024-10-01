@@ -15,13 +15,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios;
 
-public final class Const {
-    public static final String SWIFT_REPOSITORY_KEY = "ecoCode-swift";
-    public static final String PBXPROJ_REPOSITORY_KEY = "ecoCode-pbxproj";
+package io.ecocode.ios.pbxproj;
 
-    private Const() {
+import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
+import org.sonarsource.analyzer.commons.BuiltInQualityProfileJsonLoader;
 
+import io.ecocode.ios.Const;
+
+public class EcoCodePbxprojQualityProfile implements BuiltInQualityProfilesDefinition {
+    @Override
+    public void define(Context context) {
+        NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile("Default PBXProj Profile", PbxprojLanguage.KEY);
+        BuiltInQualityProfileJsonLoader.load(profile, Const.PBXPROJ_REPOSITORY_KEY, PbxprojLanguage.PROFILE_PATH);
+        profile.done();
     }
 }
