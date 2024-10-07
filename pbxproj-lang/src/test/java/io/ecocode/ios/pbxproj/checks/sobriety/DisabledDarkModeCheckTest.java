@@ -24,6 +24,7 @@ import org.sonar.api.batch.sensor.issue.Issue;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import io.ecocode.ios.pbxproj.checks.CheckTestHelper;
 
@@ -35,7 +36,7 @@ public class DisabledDarkModeCheckTest {
     @Test
     public void disabledDarkModeCheckTest_forcedLightMode_shouldTrigger(){
         SensorContextTester context = CheckTestHelper.analyzeTestFile(TEST_CASE_PBXPROJ_UIUSERINTERFACESTYLE_LIGHT);
-        List<Issue> issues = context.allIssues().stream().toList();
+        List<Issue> issues = context.allIssues().stream().collect(Collectors.toList());
         assertEquals(2, issues.size());
 
         Issue firstIssue = issues.get(0);
@@ -52,14 +53,14 @@ public class DisabledDarkModeCheckTest {
     @Test
     public void disabledDarkModeCheckTest_automaticMode_shouldNotTrigger(){
         SensorContextTester context = CheckTestHelper.analyzeTestFile(TEST_CASE_PBXPROJ_UIUSERINTERFACESTYLE_AUTOMATIC);
-        List<Issue> issues = context.allIssues().stream().toList();
+        List<Issue> issues = context.allIssues().stream().collect(Collectors.toList());
         assertEquals(0, issues.size());
     }
 
     @Test
     public void disabledDarkModeCheckTest_noKey_shouldNotTrigger(){
         SensorContextTester context = CheckTestHelper.analyzeTestFile(TEST_CASE_PBXPROJ_UIUSERINTERFACESTYLE_NO_KEY);
-        List<Issue> issues = context.allIssues().stream().toList();
+        List<Issue> issues = context.allIssues().stream().collect(Collectors.toList());
         assertEquals(0, issues.size());
     }
 }
