@@ -1,0 +1,400 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		331133DF29DDC9170006C79D /* SaveModeAwarenessCheckTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331133DE29DDC9170006C79D /* SaveModeAwarenessCheckTest.swift */; };
+		33923C7529DDCC1700821F6F /* DisabledLocationUpdatesPauseCheckTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33923C7429DDCC1700821F6F /* DisabledLocationUpdatesPauseCheckTest.swift */; };
+		33DD6BD929E0206900F30347 /* RigidAlarmCheckTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD6BD829E0206900F30347 /* RigidAlarmCheckTest.swift */; };
+		5711116929DDC8840061F65D /* BrightnessOverrideCheckTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711116829DDC8840061F65D /* BrightnessOverrideCheckTest.swift */; };
+		63062B0029DD7CBD00D9FDD3 /* ChargeAwarenessCheckTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63062AFF29DD7CBD00D9FDD3 /* ChargeAwarenessCheckTest.swift */; };
+		89F0B3872988050100A7F601 /* ecoCodeTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F0B3862988050100A7F601 /* ecoCodeTestAppApp.swift */; };
+		89F0B3892988050100A7F601 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F0B3882988050100A7F601 /* ContentView.swift */; };
+		89F0B38B2988050100A7F601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F0B38A2988050100A7F601 /* Assets.xcassets */; };
+		89F0B38E2988050100A7F601 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F0B38D2988050100A7F601 /* Preview Assets.xcassets */; };
+		89F0B3952988056D00A7F601 /* IdleTimerDisabledCheckTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F0B3942988056D00A7F601 /* IdleTimerDisabledCheckTest.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		331133DE29DDC9170006C79D /* SaveModeAwarenessCheckTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveModeAwarenessCheckTest.swift; sourceTree = "<group>"; };
+		33923C7429DDCC1700821F6F /* DisabledLocationUpdatesPauseCheckTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledLocationUpdatesPauseCheckTest.swift; sourceTree = "<group>"; };
+		33DD6BD829E0206900F30347 /* RigidAlarmCheckTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RigidAlarmCheckTest.swift; sourceTree = "<group>"; };
+		5711116829DDC8840061F65D /* BrightnessOverrideCheckTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessOverrideCheckTest.swift; sourceTree = "<group>"; };
+		63062AFF29DD7CBD00D9FDD3 /* ChargeAwarenessCheckTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeAwarenessCheckTest.swift; sourceTree = "<group>"; };
+		89F0B3832988050100A7F601 /* ecoCodeTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ecoCodeTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89F0B3862988050100A7F601 /* ecoCodeTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ecoCodeTestAppApp.swift; sourceTree = "<group>"; };
+		89F0B3882988050100A7F601 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		89F0B38A2988050100A7F601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89F0B38D2988050100A7F601 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		89F0B3942988056D00A7F601 /* IdleTimerDisabledCheckTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTimerDisabledCheckTest.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89F0B3802988050100A7F601 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5711116729DDC82B0061F65D /* sobriety */ = {
+			isa = PBXGroup;
+			children = (
+				5711116829DDC8840061F65D /* BrightnessOverrideCheckTest.swift */,
+				33923C7429DDCC1700821F6F /* DisabledLocationUpdatesPauseCheckTest.swift */,
+			);
+			path = sobriety;
+			sourceTree = "<group>";
+		};
+		63062AFE29DD7C9500D9FDD3 /* power */ = {
+			isa = PBXGroup;
+			children = (
+				63062AFF29DD7CBD00D9FDD3 /* ChargeAwarenessCheckTest.swift */,
+				331133DE29DDC9170006C79D /* SaveModeAwarenessCheckTest.swift */,
+			);
+			path = power;
+			sourceTree = "<group>";
+		};
+		89F0B37A2988050000A7F601 = {
+			isa = PBXGroup;
+			children = (
+				89F0B3852988050100A7F601 /* ecoCodeTestApp */,
+				89F0B3842988050100A7F601 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89F0B3842988050100A7F601 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89F0B3832988050100A7F601 /* ecoCodeTestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89F0B3852988050100A7F601 /* ecoCodeTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				89F0B3962988063600A7F601 /* environment */,
+				89F0B3862988050100A7F601 /* ecoCodeTestAppApp.swift */,
+				89F0B3882988050100A7F601 /* ContentView.swift */,
+				89F0B38A2988050100A7F601 /* Assets.xcassets */,
+				89F0B38C2988050100A7F601 /* Preview Content */,
+			);
+			path = ecoCodeTestApp;
+			sourceTree = "<group>";
+		};
+		89F0B38C2988050100A7F601 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				89F0B38D2988050100A7F601 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		89F0B3962988063600A7F601 /* environment */ = {
+			isa = PBXGroup;
+			children = (
+				5711116729DDC82B0061F65D /* sobriety */,
+				63062AFE29DD7C9500D9FDD3 /* power */,
+				89F0B3972988066E00A7F601 /* idleness */,
+			);
+			path = environment;
+			sourceTree = "<group>";
+		};
+		89F0B3972988066E00A7F601 /* idleness */ = {
+			isa = PBXGroup;
+			children = (
+				89F0B3942988056D00A7F601 /* IdleTimerDisabledCheckTest.swift */,
+				33DD6BD829E0206900F30347 /* RigidAlarmCheckTest.swift */,
+			);
+			path = idleness;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89F0B3822988050100A7F601 /* ecoCodeTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89F0B3912988050100A7F601 /* Build configuration list for PBXNativeTarget "ecoCodeTestApp" */;
+			buildPhases = (
+				89F0B37F2988050100A7F601 /* Sources */,
+				89F0B3802988050100A7F601 /* Frameworks */,
+				89F0B3812988050100A7F601 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ecoCodeTestApp;
+			productName = ecoCodeTestApp;
+			productReference = 89F0B3832988050100A7F601 /* ecoCodeTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89F0B37B2988050000A7F601 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					89F0B3822988050100A7F601 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 89F0B37E2988050000A7F601 /* Build configuration list for PBXProject "ecoCodeTestApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 89F0B37A2988050000A7F601;
+			productRefGroup = 89F0B3842988050100A7F601 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89F0B3822988050100A7F601 /* ecoCodeTestApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89F0B3812988050100A7F601 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89F0B38E2988050100A7F601 /* Preview Assets.xcassets in Resources */,
+				89F0B38B2988050100A7F601 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89F0B37F2988050100A7F601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5711116929DDC8840061F65D /* BrightnessOverrideCheckTest.swift in Sources */,
+				89F0B3892988050100A7F601 /* ContentView.swift in Sources */,
+				89F0B3952988056D00A7F601 /* IdleTimerDisabledCheckTest.swift in Sources */,
+				331133DF29DDC9170006C79D /* SaveModeAwarenessCheckTest.swift in Sources */,
+				33923C7529DDCC1700821F6F /* DisabledLocationUpdatesPauseCheckTest.swift in Sources */,
+				63062B0029DD7CBD00D9FDD3 /* ChargeAwarenessCheckTest.swift in Sources */,
+				33DD6BD929E0206900F30347 /* RigidAlarmCheckTest.swift in Sources */,
+				89F0B3872988050100A7F601 /* ecoCodeTestAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		89F0B38F2988050100A7F601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		89F0B3902988050100A7F601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89F0B3922988050100A7F601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ecoCodeTestApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Je veux tout savoir sur toi et user ta batterie";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Snapp-.ecoCodeTestApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89F0B3932988050100A7F601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ecoCodeTestApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Je veux tout savoir sur toi et user ta batterie";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Snapp-.ecoCodeTestApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89F0B37E2988050000A7F601 /* Build configuration list for PBXProject "ecoCodeTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89F0B38F2988050100A7F601 /* Debug */,
+				89F0B3902988050100A7F601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89F0B3912988050100A7F601 /* Build configuration list for PBXNativeTarget "ecoCodeTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89F0B3922988050100A7F601 /* Debug */,
+				89F0B3932988050100A7F601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 89F0B37B2988050000A7F601 /* Project object */;
+}

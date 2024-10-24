@@ -15,30 +15,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift;
+package io.ecocode.ios.antlr;
 
-import io.ecocode.ios.antlr.ParseTreeAnalyzer;
-import io.ecocode.ios.swift.antlr.SwiftAntlrContext;
 import org.sonar.api.batch.fs.InputFile;
-import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
-import org.sonar.api.batch.sensor.SensorDescriptor;
 
-public class SwiftSensor implements Sensor {
-
-    @Override
-    public void describe(SensorDescriptor sensorDescriptor) {
-        sensorDescriptor
-                .onlyOnLanguage(Swift.KEY)
-                .name("ecoCode Swift Sensor")
-                .onlyOnFileType(InputFile.Type.MAIN);
-    }
-
-    @Override
-    public void execute(SensorContext sensorContext) {
-        final SwiftAntlrContext antlrContext = new SwiftAntlrContext();
-        // Analyse source files
-        new ParseTreeAnalyzer(Swift.KEY, InputFile.Type.MAIN, antlrContext, sensorContext)
-                .analyze(new EcoCodeSwiftVisitor());
+public class ParseTreeAnalyzerFactory {
+    public ParseTreeAnalyzer create(String languageKey, InputFile.Type fileType, AntlrContext antlrContext, SensorContext sensorContext) {
+        return new ParseTreeAnalyzer(languageKey, fileType, antlrContext, sensorContext);
     }
 }

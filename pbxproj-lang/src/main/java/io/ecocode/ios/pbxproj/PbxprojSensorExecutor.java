@@ -15,30 +15,37 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift;
 
-import io.ecocode.ios.antlr.ParseTreeAnalyzer;
-import io.ecocode.ios.swift.antlr.SwiftAntlrContext;
+package io.ecocode.ios.pbxproj;
+
 import org.sonar.api.batch.fs.InputFile;
-import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 
-public class SwiftSensor implements Sensor {
+import io.ecocode.ios.pbxproj.antlr.PbxprojAntlrContext;
+import io.ecocode.ios.checks.RuleLoader;
+import io.ecocode.ios.antlr.ParseTreeAnalyzerFactory;
+import io.ecocode.ios.antlr.ParseTreeAnalyzer;
 
-    @Override
+public class PbxprojSensorExecutor {
+    private final RuleLoader<PbxprojRuleCheck> ruleLoader;
+    private final ParseTreeAnalyzerFactory analyzerFactory;
+
+    public PbxprojSensorExecutor(RuleLoader<PbxprojRuleCheck> ruleLoader, ParseTreeAnalyzerFactory analyzerFactory) {
+        this.ruleLoader = ruleLoader;
+        this.analyzerFactory = analyzerFactory;
+    }
+
     public void describe(SensorDescriptor sensorDescriptor) {
         sensorDescriptor
-                .onlyOnLanguage(Swift.KEY)
-                .name("ecoCode Swift Sensor")
+                .onlyOnLanguage(PbxprojLanguage.KEY)
+                .name("ecoCode pbxproj Sensor")
                 .onlyOnFileType(InputFile.Type.MAIN);
     }
 
-    @Override
     public void execute(SensorContext sensorContext) {
-        final SwiftAntlrContext antlrContext = new SwiftAntlrContext();
-        // Analyse source files
-        new ParseTreeAnalyzer(Swift.KEY, InputFile.Type.MAIN, antlrContext, sensorContext)
-                .analyze(new EcoCodeSwiftVisitor());
+        final PbxprojAntlrContext antlrContext = new PbxprojAntlrContext();
+        ParseTreeAnalyzer analyzer = analyzerFactory.create(PbxprojLanguage.KEY, InputFile.Type.MAIN, antlrContext, sensorContext);
+        analyzer.analyze(new EcoCodePbxprojVisitor(ruleLoader));
     }
 }

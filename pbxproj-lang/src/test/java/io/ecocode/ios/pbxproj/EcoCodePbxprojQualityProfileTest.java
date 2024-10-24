@@ -15,13 +15,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios;
+package io.ecocode.ios.pbxproj;
 
-public final class Const {
-    public static final String SWIFT_REPOSITORY_KEY = "ecoCode-swift";
-    public static final String PBXPROJ_REPOSITORY_KEY = "ecoCode-pbxproj";
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-    private Const() {
+import org.junit.Test;
+import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 
+public class EcoCodePbxprojQualityProfileTest {
+
+    @Test
+    public void define() {
+        // GIVEN
+        EcoCodePbxprojQualityProfile profile = new EcoCodePbxprojQualityProfile();
+        BuiltInQualityProfilesDefinition.Context context = new BuiltInQualityProfilesDefinition.Context();
+
+        // WHEN
+        profile.define(context);
+        BuiltInQualityProfilesDefinition.BuiltInQualityProfile pbxprojProfile = context.profile(PbxprojLanguage.KEY, "Default PBXProj Profile");
+
+        // THEN
+        assertNotNull(pbxprojProfile);
+        assertEquals(1, pbxprojProfile.rules().size());
     }
 }

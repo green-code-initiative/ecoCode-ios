@@ -20,7 +20,13 @@ package io.ecocode.ios;
 import io.ecocode.ios.swift.EcoCodeSwiftProfile;
 import io.ecocode.ios.swift.EcoCodeSwiftRulesDefinition;
 import io.ecocode.ios.swift.SwiftSensor;
+import io.ecocode.ios.pbxproj.PbxprojLanguage;
+import io.ecocode.ios.pbxproj.EcoCodePbxprojQualityProfile;
+import io.ecocode.ios.pbxproj.EcoCodePbxprojRulesDefinition;
+import io.ecocode.ios.pbxproj.PbxprojSensor;
 import org.sonar.api.Plugin;
+import org.sonar.api.config.PropertyDefinition;
+import org.sonar.api.resources.Qualifiers;
 
 public class EcoCodeIOSPlugin implements Plugin  {
 
@@ -28,5 +34,19 @@ public class EcoCodeIOSPlugin implements Plugin  {
     public void define(Context context) {
 
         context.addExtensions(SwiftSensor.class, EcoCodeSwiftProfile.class, EcoCodeSwiftRulesDefinition.class);
+        context.addExtensions(
+                PropertyDefinition.builder("sonar.pbxproj.file.suffixes")
+                        .name("File suffixes")
+                        .description("Comma-separated list of suffixes for PBXProj files to analyze.")
+                        .defaultValue(".pbxproj")
+                        .multiValues(true)
+                        .category("PBXProj")
+                        .onQualifiers(Qualifiers.PROJECT)
+                        .build(),
+                PbxprojLanguage.class,
+                EcoCodePbxprojRulesDefinition.class,
+                EcoCodePbxprojQualityProfile.class,
+                PbxprojSensor.class
+        );
     }
 }

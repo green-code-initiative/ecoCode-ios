@@ -15,30 +15,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift;
 
-import io.ecocode.ios.antlr.ParseTreeAnalyzer;
-import io.ecocode.ios.swift.antlr.SwiftAntlrContext;
-import org.sonar.api.batch.fs.InputFile;
+package io.ecocode.ios.pbxproj;
+
+import org.reflections.Reflections;
 import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 
-public class SwiftSensor implements Sensor {
+import io.ecocode.ios.checks.DefaultRuleLoader;
+import io.ecocode.ios.checks.RuleLoader;
+import io.ecocode.ios.antlr.ParseTreeAnalyzerFactory;
+
+public class PbxprojSensor implements Sensor {
+    private final PbxprojSensorExecutor sensorExecutor;
+
+    public PbxprojSensor() {
+        RuleLoader ruleLoader = new DefaultRuleLoader(PbxprojRuleCheck.class, new Reflections("io.ecocode.ios.pbxproj.checks"));
+        ParseTreeAnalyzerFactory parseTreeAnalyzerFactory = new ParseTreeAnalyzerFactory();
+        this.sensorExecutor = new PbxprojSensorExecutor(ruleLoader, parseTreeAnalyzerFactory);
+    }
 
     @Override
     public void describe(SensorDescriptor sensorDescriptor) {
-        sensorDescriptor
-                .onlyOnLanguage(Swift.KEY)
-                .name("ecoCode Swift Sensor")
-                .onlyOnFileType(InputFile.Type.MAIN);
+        sensorExecutor.describe(sensorDescriptor);
     }
 
     @Override
     public void execute(SensorContext sensorContext) {
-        final SwiftAntlrContext antlrContext = new SwiftAntlrContext();
-        // Analyse source files
-        new ParseTreeAnalyzer(Swift.KEY, InputFile.Type.MAIN, antlrContext, sensorContext)
-                .analyze(new EcoCodeSwiftVisitor());
+        sensorExecutor.execute(sensorContext);
     }
 }

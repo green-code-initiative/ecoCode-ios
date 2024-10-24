@@ -15,13 +15,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios;
+package io.ecocode.ios.checks;
 
-public final class Const {
-    public static final String SWIFT_REPOSITORY_KEY = "ecoCode-swift";
-    public static final String PBXPROJ_REPOSITORY_KEY = "ecoCode-pbxproj";
+import java.util.List;
 
-    private Const() {
-
-    }
+public interface RuleLoader<T extends RuleCheck> {
+    List<T> loadRules();
 }

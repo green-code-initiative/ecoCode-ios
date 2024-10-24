@@ -7,26 +7,23 @@
         <version>1.1.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ecocode-commons-ios</artifactId>
+    <artifactId>ecocode-pbxproj-lang</artifactId>
 
     <dependencies>
 
         <dependency>
-            <groupId>com.fasterxml.staxmate</groupId>
-            <artifactId>staxmate</artifactId>
-            <version>2.4.0</version>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ecocode-rules-specifications</artifactId>
+            <version>${ecocode-rules-specifications.version}</version>
+            <!--
+            <classifier>pbxproj</classifier>
+            -->
         </dependency>
 
         <dependency>
-            <groupId>org.antlr</groupId>
-            <artifactId>antlr4-runtime</artifactId>
-            <version>4.10</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>[20230227,)</version>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ecocode-commons-ios</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
@@ -34,6 +31,13 @@
             <artifactId>reflections</artifactId>
             <version>0.9.12</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 </project>

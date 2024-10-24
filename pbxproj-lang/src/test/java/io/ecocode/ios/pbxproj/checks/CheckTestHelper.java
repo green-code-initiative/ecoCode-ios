@@ -15,13 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.checks;
+package io.ecocode.ios.pbxproj.checks;
 
 import io.ecocode.ios.antlr.ParseTreeAnalyzer;
-import io.ecocode.ios.swift.EcoCodeSwiftVisitor;
-import io.ecocode.ios.swift.Swift;
-import io.ecocode.ios.swift.TestHelper;
-import io.ecocode.ios.swift.antlr.SwiftAntlrContext;
+import io.ecocode.ios.checks.DefaultRuleLoader;
+import io.ecocode.ios.checks.RuleLoader;
+import io.ecocode.ios.pbxproj.EcoCodePbxprojVisitor;
+import io.ecocode.ios.pbxproj.PbxprojLanguage;
+import io.ecocode.ios.pbxproj.PbxprojRuleCheck;
+import io.ecocode.ios.pbxproj.antlr.PbxprojAntlrContext;
+import io.ecocode.ios.pbxproj.TestHelper;
+
+import org.reflections.Reflections;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.sensor.internal.SensorContextTester;
 
@@ -31,9 +36,10 @@ public class CheckTestHelper {
     public static SensorContextTester analyzeTestFile(String relativePath) {
         SensorContextTester context = TestHelper.testFile(relativePath);
 
-        final SwiftAntlrContext antlrContext = new SwiftAntlrContext();
-        new ParseTreeAnalyzer(Swift.KEY, InputFile.Type.MAIN, antlrContext, context)
-                .analyze(new EcoCodeSwiftVisitor());
+        final PbxprojAntlrContext antlrContext = new PbxprojAntlrContext();
+        RuleLoader ruleLoader = new DefaultRuleLoader(PbxprojRuleCheck.class, new Reflections("io.ecocode.ios.pbxproj.checks"));
+        new ParseTreeAnalyzer(PbxprojLanguage.KEY, InputFile.Type.MAIN, antlrContext, context)
+                .analyze(new EcoCodePbxprojVisitor(ruleLoader));
 
         return context;
     }

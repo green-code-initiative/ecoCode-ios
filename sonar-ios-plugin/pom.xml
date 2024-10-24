@@ -20,6 +20,11 @@
             <artifactId>ecocode-swift-lang</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ecocode-pbxproj-lang</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

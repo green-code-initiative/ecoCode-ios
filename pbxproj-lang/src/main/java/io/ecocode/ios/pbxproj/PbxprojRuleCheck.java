@@ -15,13 +15,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios;
 
-public final class Const {
-    public static final String SWIFT_REPOSITORY_KEY = "ecoCode-swift";
-    public static final String PBXPROJ_REPOSITORY_KEY = "ecoCode-pbxproj";
+package io.ecocode.ios.pbxproj;
 
-    private Const() {
+import io.ecocode.ios.checks.RuleCheck;
 
+public abstract class PbxprojRuleCheck extends RuleCheck {
+
+    protected PbxprojRuleCheck() {
+        this.repositoryKey = "ecoCode-pbxproj";
     }
 }

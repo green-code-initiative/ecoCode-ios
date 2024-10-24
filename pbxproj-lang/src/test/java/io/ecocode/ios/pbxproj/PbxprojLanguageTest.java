@@ -15,26 +15,42 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.antlr;
+package io.ecocode.ios.pbxproj;
 
-import io.ecocode.ios.swift.EcoCodeSwiftVisitor;
-import io.ecocode.ios.swift.Swift;
-import io.ecocode.ios.swift.TestHelper;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.sonar.api.batch.fs.InputFile;
-import org.sonar.api.batch.sensor.internal.SensorContextTester;
 
-import static org.assertj.core.api.Assertions.assertThat;
-public class ParseTreeAnalyzerTest {
+import java.util.List;
 
-    @Test
-    public void analyze() throws Throwable {
-        final SwiftAntlrContext antlrContext = new SwiftAntlrContext();
-        SensorContextTester sensorContext = TestHelper.testFile("checks/IdleTimerDisabled_trigger.swift");
-        ParseTreeAnalyzer analyzer = new ParseTreeAnalyzer(Swift.KEY, InputFile.Type.MAIN, antlrContext, sensorContext);
-        analyzer.analyze(new EcoCodeSwiftVisitor());
+public class PbxprojLanguageTest {
+    private PbxprojLanguage sut;
 
-        assertThat(sensorContext.allIssues()).hasSize(1);
+    @Before
+    public void setUp() {
+        sut = new PbxprojLanguage();
     }
 
+    @After
+    public void tearDown() {
+        sut = null;
+    }
+
+    @Test
+    public void PbxprojLanguageInitialization_shouldBeCorrect() {
+        // THEN
+        assertEquals("pbxproj", sut.getKey());
+        assertEquals("Pbxproj", sut.getName());
+    }
+
+    @Test
+    public void PbxprojLanguage_getFileSuffixes_ShouldBeCorrect() {
+        // WHEN
+        String[] fileSuffixes = sut.getFileSuffixes();
+        // THEN
+        String[] expectedFileSuffixes = { "pbxproj" };
+        assertEquals(expectedFileSuffixes, fileSuffixes);
+    }
 }
