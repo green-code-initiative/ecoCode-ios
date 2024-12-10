@@ -23,7 +23,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 
-public class EcoCodePbxprojQualityProfileTest {
+public class CreedengoPbxprojQualityProfileTest {
 
     @Test
     public void define() {

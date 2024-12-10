@@ -1,5 +1,5 @@
 {
-    "key": "EC512",
+    "key": "GCI512",
     "title": "Camera Leakage",
     "defaultSeverity": "Major",
     "description": "Any started capture session should be stopped.",
@@ -9,7 +9,7 @@
         "constantCost": "5min"
     },
     "tags": [
-        "ecocode",
+        "creedengo",
         "environment",
         "sobriety",
         "eco-design"

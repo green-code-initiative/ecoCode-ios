@@ -24,13 +24,13 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class EcoCodeSwiftVisitorTest {
+public class CreedengoSwiftVisitorTest {
     @Test
     public void analyze() throws Throwable {
         Reflections reflections = new Reflections("org.greencodeinitiative.creedengo.ios.swift.checks");
         Set<Class<? extends SwiftRuleCheck>> allClasses = reflections.getSubTypesOf(SwiftRuleCheck.class);
 
-        CreedengoSwiftVisitor ecoCodeSwiftVisitor = new CreedengoSwiftVisitor();
-        assertThat(ecoCodeSwiftVisitor.getChecks()).hasSize(allClasses.size());
+        CreedengoSwiftVisitor creedengoSwiftVisitor = new CreedengoSwiftVisitor();
+        assertThat(creedengoSwiftVisitor.getChecks()).hasSize(allClasses.size());
     }
 }

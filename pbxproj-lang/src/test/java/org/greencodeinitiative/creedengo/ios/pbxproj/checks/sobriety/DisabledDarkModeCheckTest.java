@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,8 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
-package io.ecocode.ios.pbxproj.checks.sobriety;
+package org.greencodeinitiative.creedengo.ios.pbxproj.checks.sobriety;
 
 import org.junit.Test;
 import org.sonar.api.batch.sensor.internal.SensorContextTester;
@@ -26,7 +25,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import io.ecocode.ios.pbxproj.checks.CheckTestHelper;
+import org.greencodeinitiative.creedengo.ios.pbxproj.checks.CheckTestHelper;
 
 public class DisabledDarkModeCheckTest {
     private static final String TEST_CASE_PBXPROJ_UIUSERINTERFACESTYLE_LIGHT = "checks/sobriety/DisabledDarkModeCheck_light.pbxproj";
@@ -40,13 +39,13 @@ public class DisabledDarkModeCheckTest {
         assertEquals(2, issues.size());
 
         Issue firstIssue = issues.get(0);
-        assertEquals("EC547", firstIssue.ruleKey().rule());
-        assertEquals("ecoCode-pbxproj", firstIssue.ruleKey().repository());
+        assertEquals("GCI547", firstIssue.ruleKey().rule());
+        assertEquals("creedengo-pbxproj", firstIssue.ruleKey().repository());
         assertEquals(334, firstIssue.primaryLocation().textRange().start().line());
 
         Issue secondIssue = issues.get(1);
-        assertEquals("EC547", secondIssue.ruleKey().rule());
-        assertEquals("ecoCode-pbxproj", secondIssue.ruleKey().repository());
+        assertEquals("GCI547", secondIssue.ruleKey().rule());
+        assertEquals("creedengo-pbxproj", secondIssue.ruleKey().repository());
         assertEquals(364, secondIssue.primaryLocation().textRange().start().line());
     }
 

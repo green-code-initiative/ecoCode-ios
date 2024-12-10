@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,16 +15,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.pbxproj.checks;
+package org.greencodeinitiative.creedengo.ios.pbxproj.checks;
 
-import io.ecocode.ios.antlr.ParseTreeAnalyzer;
-import io.ecocode.ios.checks.DefaultRuleLoader;
-import io.ecocode.ios.checks.RuleLoader;
-import io.ecocode.ios.pbxproj.EcoCodePbxprojVisitor;
-import io.ecocode.ios.pbxproj.PbxprojLanguage;
-import io.ecocode.ios.pbxproj.PbxprojRuleCheck;
-import io.ecocode.ios.pbxproj.antlr.PbxprojAntlrContext;
-import io.ecocode.ios.pbxproj.TestHelper;
+import org.greencodeinitiative.creedengo.ios.antlr.ParseTreeAnalyzer;
+import org.greencodeinitiative.creedengo.ios.checks.DefaultRuleLoader;
+import org.greencodeinitiative.creedengo.ios.checks.RuleLoader;
+import org.greencodeinitiative.creedengo.ios.pbxproj.CreedengoPbxprojVisitor;
+import org.greencodeinitiative.creedengo.ios.pbxproj.PbxprojLanguage;
+import org.greencodeinitiative.creedengo.ios.pbxproj.PbxprojRuleCheck;
+import org.greencodeinitiative.creedengo.ios.pbxproj.antlr.PbxprojAntlrContext;
+import org.greencodeinitiative.creedengo.ios.pbxproj.TestHelper;
 
 import org.reflections.Reflections;
 import org.sonar.api.batch.fs.InputFile;
@@ -37,9 +37,9 @@ public class CheckTestHelper {
         SensorContextTester context = TestHelper.testFile(relativePath);
 
         final PbxprojAntlrContext antlrContext = new PbxprojAntlrContext();
-        RuleLoader ruleLoader = new DefaultRuleLoader(PbxprojRuleCheck.class, new Reflections("io.ecocode.ios.pbxproj.checks"));
+        RuleLoader ruleLoader = new DefaultRuleLoader(PbxprojRuleCheck.class, new Reflections("org.greencodeinitiative.creedengo.ios.pbxproj.checks"));
         new ParseTreeAnalyzer(PbxprojLanguage.KEY, InputFile.Type.MAIN, antlrContext, context)
-                .analyze(new EcoCodePbxprojVisitor(ruleLoader));
+                .analyze(new CreedengoPbxprojVisitor(ruleLoader));
 
         return context;
     }

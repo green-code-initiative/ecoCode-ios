@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,13 +15,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.checks;
+package org.greencodeinitiative.creedengo.ios.swift.checks;
 
-import io.ecocode.ios.antlr.ParseTreeAnalyzer;
-import io.ecocode.ios.swift.EcoCodeSwiftVisitor;
-import io.ecocode.ios.swift.Swift;
-import io.ecocode.ios.swift.TestHelper;
-import io.ecocode.ios.swift.antlr.SwiftAntlrContext;
+import org.greencodeinitiative.creedengo.ios.antlr.ParseTreeAnalyzer;
+import org.greencodeinitiative.creedengo.ios.swift.CreedengoSwiftVisitor;
+import org.greencodeinitiative.creedengo.ios.swift.Swift;
+import org.greencodeinitiative.creedengo.ios.swift.TestHelper;
+import org.greencodeinitiative.creedengo.ios.swift.antlr.SwiftAntlrContext;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.sensor.internal.SensorContextTester;
 
@@ -33,7 +33,7 @@ public class CheckTestHelper {
 
         final SwiftAntlrContext antlrContext = new SwiftAntlrContext();
         new ParseTreeAnalyzer(Swift.KEY, InputFile.Type.MAIN, antlrContext, context)
-                .analyze(new EcoCodeSwiftVisitor());
+                .analyze(new CreedengoSwiftVisitor());
 
         return context;
     }

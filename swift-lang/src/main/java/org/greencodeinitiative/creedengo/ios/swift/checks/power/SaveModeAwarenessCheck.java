@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,16 +15,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.checks.power;
+package org.greencodeinitiative.creedengo.ios.swift.checks.power;
 
-import io.ecocode.ios.swift.SwiftRuleCheck;
-import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
+import org.greencodeinitiative.creedengo.ios.swift.SwiftRuleCheck;
+import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
 
 import java.util.List;
 
-@Rule(key = "EC520")
+@Rule(key = "GCI520")
 public class SaveModeAwarenessCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Taking into account when the device is entering or exiting the power save mode is a good practice";
     private static final String PROCESS_INFO = "ProcessInfo.processInfo.isLowPowerModeEnabled";

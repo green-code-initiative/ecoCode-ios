@@ -1,20 +1,20 @@
 {
-  "name": "ecoCode",
+  "name": "Creedengo",
   "ruleKeys": [
-    "EC505",
-    "EC509",
-    "EC512",
-    "EC513",
-    "EC514",
-    "EC515",
-    "EC519",
-    "EC520",
-    "EC522",
-    "EC524",
-    "EC528",
-    "EC530",
-    "EC533",
-    "EC534",
-    "EC603"
+    "GCI505",
+    "GCI509",
+    "GCI512",
+    "GCI513",
+    "GCI514",
+    "GCI515",
+    "GCI519",
+    "GCI520",
+    "GCI522",
+    "GCI524",
+    "GCI528",
+    "GCI530",
+    "GCI533",
+    "GCI534",
+    "GCI603"
   ]
 }

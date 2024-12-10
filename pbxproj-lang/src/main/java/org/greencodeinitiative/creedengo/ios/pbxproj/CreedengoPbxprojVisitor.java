@@ -28,12 +28,12 @@ import org.greencodeinitiative.creedengo.ios.antlr.AntlrContext;
 import org.greencodeinitiative.creedengo.ios.antlr.ParseTreeItemVisitor;
 import org.greencodeinitiative.creedengo.ios.checks.RuleLoader;
 
-public class EcoCodePbxprojVisitor implements ParseTreeItemVisitor {
-    private static final Logger LOGGER = Loggers.get(EcoCodePbxprojVisitor.class);
+public class CreedengoPbxprojVisitor implements ParseTreeItemVisitor {
+    private static final Logger LOGGER = Loggers.get(CreedengoPbxprojVisitor.class);
 
     private final List<PbxprojRuleCheck> checks;
 
-    public EcoCodePbxprojVisitor(RuleLoader<PbxprojRuleCheck> ruleLoader) {
+    public CreedengoPbxprojVisitor(RuleLoader<PbxprojRuleCheck> ruleLoader) {
         this.checks = ruleLoader.loadRules();
     }
     @Override

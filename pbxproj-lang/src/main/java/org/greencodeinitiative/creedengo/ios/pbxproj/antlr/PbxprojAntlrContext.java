@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,8 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
-package io.ecocode.ios.pbxproj.antlr;
+package org.greencodeinitiative.creedengo.ios.pbxproj.antlr;
 
 
 import org.antlr.v4.runtime.CharStream;
@@ -28,11 +27,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
-import io.ecocode.ios.antlr.AntlrContext;
-import io.ecocode.ios.antlr.SourceLine;
-import io.ecocode.ios.antlr.SourceLinesProvider;
-import io.ecocode.ios.pbxproj.antlr.generated.PbxprojLexer;
-import io.ecocode.ios.pbxproj.antlr.generated.PbxprojParser;
+import org.greencodeinitiative.creedengo.ios.antlr.AntlrContext;
+import org.greencodeinitiative.creedengo.ios.antlr.SourceLine;
+import org.greencodeinitiative.creedengo.ios.antlr.SourceLinesProvider;
+import org.greencodeinitiative.creedengo.ios.pbxproj.antlr.generated.PbxprojLexer;
+import org.greencodeinitiative.creedengo.ios.pbxproj.antlr.generated.PbxprojParser;
 
 public class PbxprojAntlrContext extends AntlrContext {
 

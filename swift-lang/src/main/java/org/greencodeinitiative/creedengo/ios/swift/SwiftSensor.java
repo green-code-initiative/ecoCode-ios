@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,10 +15,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift;
+package org.greencodeinitiative.creedengo.ios.swift;
 
-import io.ecocode.ios.antlr.ParseTreeAnalyzer;
-import io.ecocode.ios.swift.antlr.SwiftAntlrContext;
+import org.greencodeinitiative.creedengo.ios.antlr.ParseTreeAnalyzer;
+import org.greencodeinitiative.creedengo.ios.swift.antlr.SwiftAntlrContext;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
@@ -30,7 +30,7 @@ public class SwiftSensor implements Sensor {
     public void describe(SensorDescriptor sensorDescriptor) {
         sensorDescriptor
                 .onlyOnLanguage(Swift.KEY)
-                .name("ecoCode Swift Sensor")
+                .name("Creedengo Swift Sensor")
                 .onlyOnFileType(InputFile.Type.MAIN);
     }
 
@@ -39,6 +39,6 @@ public class SwiftSensor implements Sensor {
         final SwiftAntlrContext antlrContext = new SwiftAntlrContext();
         // Analyse source files
         new ParseTreeAnalyzer(Swift.KEY, InputFile.Type.MAIN, antlrContext, sensorContext)
-                .analyze(new EcoCodeSwiftVisitor());
+                .analyze(new CreedengoSwiftVisitor());
     }
 }

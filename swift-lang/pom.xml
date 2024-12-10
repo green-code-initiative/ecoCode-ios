@@ -2,25 +2,25 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.ecocode</groupId>
-        <artifactId>ios-plugin</artifactId>
-        <version>1.1.1-SNAPSHOT</version>
+        <groupId>org.green-code-initiative</groupId>
+        <artifactId>creedengo-ios-plugin</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ecocode-swift-lang</artifactId>
+    <artifactId>creedengo-swift-lang</artifactId>
 
     <dependencies>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>ecocode-rules-specifications</artifactId>
-            <version>${ecocode-rules-specifications.version}</version>
+            <artifactId>creedengo-rules-specifications</artifactId>
+            <version>${creedengo-rules-specifications.version}</version>
             <classifier>swift</classifier>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>ecocode-commons-ios</artifactId>
+            <artifactId>creedengo-commons-ios</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

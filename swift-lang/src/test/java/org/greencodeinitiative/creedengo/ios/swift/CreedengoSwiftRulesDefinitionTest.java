@@ -32,7 +32,7 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 
 
-public class EcoCodeSwiftRulesDefinitionTest {
+public class CreedengoSwiftRulesDefinitionTest {
 
     private RulesDefinition.Repository repository;
 

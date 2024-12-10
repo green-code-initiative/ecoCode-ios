@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.checks.sobriety;
+package org.greencodeinitiative.creedengo.ios.swift.checks.sobriety;
 
-import io.ecocode.ios.swift.checks.CheckTestHelper;
+import org.greencodeinitiative.creedengo.ios.swift.checks.CheckTestHelper;
 import org.junit.Test;
 import org.sonar.api.batch.sensor.internal.SensorContextTester;
 import org.sonar.api.batch.sensor.issue.Issue;
@@ -31,8 +31,8 @@ public class AudioRecorderLeakCheckTest {
     private static final String TEST_AUDIO_CASE_MISSING_RELEASE_CALL = "checks/sobriety/AudioRecorderLeak_trigger.swift";
     private static final String TEST_AUDIO_CASE_COMPLIANT = "checks/sobriety/AudioRecorderLeak_no_trigger.swift";
 
-    private static final String TESTED_RULE_ID = "EC515";
-    private static final String TEST_REPOSITORY = "ecoCode-swift";
+    private static final String TESTED_RULE_ID = "GCI515";
+    private static final String TEST_REPOSITORY = "creedengo-swift";
 
     @Test
     public void audioLeakCheck_missing_release_trigger() {

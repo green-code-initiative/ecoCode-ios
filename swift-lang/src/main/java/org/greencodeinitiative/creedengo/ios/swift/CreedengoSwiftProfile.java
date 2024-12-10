@@ -21,11 +21,11 @@ import org.greencodeinitiative.creedengo.ios.Const;
 import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 import org.sonarsource.analyzer.commons.BuiltInQualityProfileJsonLoader;
 
-public class EcoCodeSwiftProfile implements BuiltInQualityProfilesDefinition {
+public class CreedengoSwiftProfile implements BuiltInQualityProfilesDefinition {
     @Override
     public void define(Context context) {
-        NewBuiltInQualityProfile ecoCodeProfile = context.createBuiltInQualityProfile(Swift.PROFILE_NAME, Swift.KEY);
-        BuiltInQualityProfileJsonLoader.load(ecoCodeProfile, Const.SWIFT_REPOSITORY_KEY, Swift.PROFILE_PATH);
-        ecoCodeProfile.done();
+        NewBuiltInQualityProfile creedengoProfile = context.createBuiltInQualityProfile(Swift.PROFILE_NAME, Swift.KEY);
+        BuiltInQualityProfileJsonLoader.load(creedengoProfile, Const.SWIFT_REPOSITORY_KEY, Swift.PROFILE_PATH);
+        creedengoProfile.done();
     }
 }

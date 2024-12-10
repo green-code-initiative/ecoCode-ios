@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.ecocode</groupId>
-    <artifactId>ios-plugin</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <groupId>org.green-code-initiative</groupId>
+    <artifactId>creedengo-ios-plugin</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>ecoCode iOS plugin</name>
+    <name>Creedengo iOS plugin</name>
     <description>Help the earth, adopt this green plugin for your applications</description>
     <inceptionYear>2023</inceptionYear>
     <organization>
@@ -23,12 +23,12 @@
     </licenses>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/green-code-initiative/ecoCode-ios/issues</url>
+        <url>https://github.com/green-code-initiative/creedengo-ios/issues</url>
     </issueManagement>
     <scm>
-        <connection>scm:git:https://github.com/green-code-initiative/ecoCode-ios</connection>
-        <developerConnection>scm:git:https://github.com/green-code-initiative/ecoCode-ios</developerConnection>
-        <url>https://github.com/green-code-initiative/ecoCode-ios</url>
+        <connection>scm:git:https://github.com/green-code-initiative/creedengo-ios</connection>
+        <developerConnection>scm:git:https://github.com/green-code-initiative/creedengo-ios</developerConnection>
+        <url>https://github.com/green-code-initiative/creedengo-ios</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -67,8 +67,8 @@
         <assertJ.version>3.23.1</assertJ.version>
         <jacoco.version>0.8.11</jacoco.version>
 
-        <!-- Temporary version waiting for real automatic release in ecocode repository -->
-        <ecocode-rules-specifications.version>1.5.4</ecocode-rules-specifications.version>
+        <!-- Temporary version waiting for real automatic release in creedengo repository -->
+        <creedengo-rules-specifications.version>1.0.0</creedengo-rules-specifications.version>
 
     </properties>
 
@@ -192,8 +192,8 @@
                 <version>4.1</version>
                 <configuration>
                     <properties>
-                        <project.name>ecoCode iOS plugin</project.name>
-                        <email>https://www.ecocode.io/</email>
+                        <project.name>Creedengo iOS plugin</project.name>
+                        <email>https://green-code-initiative.org/</email>
                     </properties>
                     <licenseSets>
                         <licenseSet>

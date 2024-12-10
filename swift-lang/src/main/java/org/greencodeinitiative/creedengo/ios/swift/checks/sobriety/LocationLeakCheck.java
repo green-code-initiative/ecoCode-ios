@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,18 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.checks.sobriety;
+package org.greencodeinitiative.creedengo.ios.swift.checks.sobriety;
 
-import io.ecocode.ios.swift.SwiftRuleCheck;
-import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
+import org.greencodeinitiative.creedengo.ios.swift.SwiftRuleCheck;
+import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
 
-import static io.ecocode.ios.swift.checks.CheckHelper.isEndOfFile;
-import static io.ecocode.ios.swift.checks.CheckHelper.isFunctionCalled;
+import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isEndOfFile;
+import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isFunctionCalled;
 
 
-@Rule(key = "EC513")
+@Rule(key = "GCI513")
 public class LocationLeakCheck extends SwiftRuleCheck {
     public static final String START_UPDATING_LOCATION_METHOD = "startUpdatingLocation";
     public static final String STOP_UPDATING_LOCATION_METHOD = "stopUpdatingLocation";

@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.checks.sobriety;
+package org.greencodeinitiative.creedengo.ios.swift.checks.sobriety;
 
-import io.ecocode.ios.swift.checks.CheckTestHelper;
+import org.greencodeinitiative.creedengo.ios.swift.checks.CheckTestHelper;
 
 import org.junit.Test;
 import org.sonar.api.batch.sensor.internal.SensorContextTester;
@@ -83,8 +83,8 @@ public class AnimationFreeCheckTest {
     }
     
     private void assertIssue(Issue issue, int line) {
-        assertThat(issue.ruleKey().rule()).isEqualTo("EC603");
-        assertThat(issue.ruleKey().repository()).isEqualTo("ecoCode-swift");
+        assertThat(issue.ruleKey().rule()).isEqualTo("GCI603");
+        assertThat(issue.ruleKey().repository()).isEqualTo("creedengo-swift");
         IssueLocation location = issue.primaryLocation();
         assertThat(location.textRange().start().line()).isEqualTo(line);
     }

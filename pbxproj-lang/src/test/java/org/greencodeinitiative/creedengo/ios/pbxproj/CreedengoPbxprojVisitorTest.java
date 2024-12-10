@@ -35,7 +35,7 @@ import static org.mockito.Mockito.when;
 import org.greencodeinitiative.creedengo.ios.antlr.AntlrContext;
 import org.greencodeinitiative.creedengo.ios.checks.RuleLoader;
 
-public class EcoCodePbxprojVisitorTest {
+public class CreedengoPbxprojVisitorTest {
 
     private CreedengoPbxprojVisitor sut;
     private RuleLoader<PbxprojRuleCheck> mockRuleLoader;

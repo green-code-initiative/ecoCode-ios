@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,8 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-
-package io.ecocode.ios.pbxproj;
+package org.greencodeinitiative.creedengo.ios.pbxproj;
 
 import org.sonar.api.resources.AbstractLanguage;
 
@@ -24,7 +23,7 @@ public class PbxprojLanguage extends AbstractLanguage {
 
     public static final String KEY = "pbxproj";
 
-    public static final String PROFILE_PATH = "ecocode_pbxproj_profile.json";
+    public static final String PROFILE_PATH = "creedengo_pbxproj_profile.json";
 
     public PbxprojLanguage() {
         super(KEY, "Pbxproj");

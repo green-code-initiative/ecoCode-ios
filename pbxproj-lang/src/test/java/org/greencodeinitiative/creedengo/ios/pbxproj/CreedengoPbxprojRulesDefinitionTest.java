@@ -32,7 +32,7 @@ import org.sonar.api.server.rule.RulesDefinition.Rule;
 import org.sonar.api.server.debt.DebtRemediationFunction.Type;
 import org.sonar.api.utils.Version;
 
-public class EcoCodePbxprojRulesDefinitionTest {
+public class CreedengoPbxprojRulesDefinitionTest {
 
     private CreedengoPbxprojRulesDefinition sut;
     private RulesDefinition.Context context;

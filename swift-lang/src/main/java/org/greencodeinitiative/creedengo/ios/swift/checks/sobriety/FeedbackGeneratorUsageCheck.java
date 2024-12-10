@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,18 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.checks.sobriety;
+package org.greencodeinitiative.creedengo.ios.swift.checks.sobriety;
 
-import io.ecocode.ios.swift.SwiftRuleCheck;
-import io.ecocode.ios.swift.antlr.generated.Swift5Parser;
+import org.greencodeinitiative.creedengo.ios.swift.SwiftRuleCheck;
+import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
 
 import java.util.Objects;
 
-import static io.ecocode.ios.swift.checks.CheckHelper.*;
+import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.*;
 
-@Rule(key = "EC528")
+@Rule(key = "GCI528")
 public class FeedbackGeneratorUsageCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Avoid using the device vibrator to use less energy.";
     public static final String UI_KIT = "UIKit";

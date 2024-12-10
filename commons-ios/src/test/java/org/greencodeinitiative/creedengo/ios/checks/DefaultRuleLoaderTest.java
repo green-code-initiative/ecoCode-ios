@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.checks;
+package org.greencodeinitiative.creedengo.ios.checks;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -36,7 +36,7 @@ public class DefaultRuleLoaderTest {
 
     @Before
     public void setUp() {
-        sut = new DefaultRuleLoader<>(BaseTestRule1.class, new Reflections("io.ecocode.ios.checks"));
+        sut = new DefaultRuleLoader<>(BaseTestRule1.class, new Reflections("org.greencodeinitiative.creedengo.ios.checks"));
     }
 
     @After

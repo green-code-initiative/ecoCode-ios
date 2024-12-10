@@ -22,7 +22,7 @@ import org.sonarsource.analyzer.commons.BuiltInQualityProfileJsonLoader;
 
 import org.greencodeinitiative.creedengo.ios.Const;
 
-public class EcoCodePbxprojQualityProfile implements BuiltInQualityProfilesDefinition {
+public class CreedengoPbxprojQualityProfile implements BuiltInQualityProfilesDefinition {
     @Override
     public void define(Context context) {
         NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile("Default PBXProj Profile", PbxprojLanguage.KEY);

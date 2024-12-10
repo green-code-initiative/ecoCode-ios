@@ -1,15 +1,15 @@
 {
-  "key": "EC514",
-  "title": "Motion Sensor Leakage",
+  "key": "GCI547",
+  "title": "Light Mode Forced",
   "defaultSeverity": "Major",
-  "description": "Any motion sensor started should be stopped.",
+  "description": "Dark mode is disabled across the entire app. Handling dark mode could help preserve battery life.",
   "status": "ready",
   "remediation": {
     "func": "Constant/Issue",
     "constantCost": "5min"
   },
   "tags": [
-    "ecocode",
+    "creendengo",
     "environment",
     "sobriety",
     "eco-design"

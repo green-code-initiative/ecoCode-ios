@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,14 +15,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift;
+package org.greencodeinitiative.creedengo.ios.swift;
 
 public final class Swift {
 
     private Swift() {}
 
     public static final String KEY = "swift";
-    public static final String PROFILE_NAME = "ecoCode";
-    public static final String REPOSITORY_NAME = "ecoCode";
-    public static final String PROFILE_PATH = "ecocode_swift_profile.json";
+    public static final String PROFILE_NAME = "Creedengo";
+    public static final String REPOSITORY_NAME = "Creedengo";
+    public static final String PROFILE_PATH = "creedengo_swift_profile.json";
 }
+

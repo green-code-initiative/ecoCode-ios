@@ -31,12 +31,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class EcoCodeSwiftVisitor implements ParseTreeItemVisitor {
-    private static final Logger LOGGER = Loggers.get(EcoCodeSwiftVisitor.class);
+public class CreedengoSwiftVisitor implements ParseTreeItemVisitor {
+    private static final Logger LOGGER = Loggers.get(CreedengoSwiftVisitor.class);
 
     private final List<SwiftRuleCheck> checks = new ArrayList<>();
 
-    public EcoCodeSwiftVisitor() {
+    public CreedengoSwiftVisitor() {
         // Load checks
         Reflections reflections = new Reflections("org.greencodeinitiative.creedengo.ios.swift.checks");
 

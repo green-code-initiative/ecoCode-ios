@@ -22,7 +22,7 @@ import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 
 import static org.junit.Assert.assertNotNull;
 
-public class EcoCodeSwiftProfileTest {
+public class CreedengoSwiftProfileTest {
 
     @Test
     public void define() {
@@ -30,7 +30,7 @@ public class EcoCodeSwiftProfileTest {
         BuiltInQualityProfilesDefinition.Context context = new BuiltInQualityProfilesDefinition.Context();
 
         profile.define(context);
-        BuiltInQualityProfilesDefinition.BuiltInQualityProfile ecoCodeProfile = context.profile(Swift.KEY, Swift.PROFILE_NAME);
-        assertNotNull(ecoCodeProfile);
+        BuiltInQualityProfilesDefinition.BuiltInQualityProfile creedengoProfile = context.profile(Swift.KEY, Swift.PROFILE_NAME);
+        assertNotNull(creedengoProfile);
     }
 }

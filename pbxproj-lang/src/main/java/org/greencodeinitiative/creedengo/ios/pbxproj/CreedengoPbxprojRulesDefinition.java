@@ -27,13 +27,13 @@ import java.util.Set;
 
 import org.greencodeinitiative.creedengo.ios.Const;
 
-public class EcoCodePbxprojRulesDefinition implements RulesDefinition {
+public class CreedengoPbxprojRulesDefinition implements RulesDefinition {
     private static final String RESOURCE_BASE_PATH = "org/green-code-initiative/rules/pbxproj";
     private static final String NAME = "PBXProj Rules Repository";
     private static final String LANGUAGE = PbxprojLanguage.KEY;
     private final SonarRuntime sonarRuntime;
 
-    public EcoCodePbxprojRulesDefinition(SonarRuntime sonarRuntime) {
+    public CreedengoPbxprojRulesDefinition(SonarRuntime sonarRuntime) {
         this.sonarRuntime = sonarRuntime;
     }
 

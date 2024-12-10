@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.checks;
+package org.greencodeinitiative.creedengo.ios.checks;
 
 import org.reflections.Reflections;
 import org.sonar.api.utils.log.Logger;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import io.ecocode.ios.antlr.ParseTreeItemVisitor;
+import org.greencodeinitiative.creedengo.ios.antlr.ParseTreeItemVisitor;
 
 public class DefaultRuleLoader<T extends RuleCheck> implements RuleLoader<T> {
     private final Class<T> ruleClass;

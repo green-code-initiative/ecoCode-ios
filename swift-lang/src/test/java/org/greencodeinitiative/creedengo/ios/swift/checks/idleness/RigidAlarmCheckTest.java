@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,9 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package io.ecocode.ios.swift.checks.idleness;
+package org.greencodeinitiative.creedengo.ios.swift.checks.idleness;
 
-import io.ecocode.ios.swift.checks.CheckTestHelper;
+import org.greencodeinitiative.creedengo.ios.swift.checks.CheckTestHelper;
 import org.junit.Test;
 import org.sonar.api.batch.sensor.internal.SensorContextTester;
 import org.sonar.api.batch.sensor.issue.Issue;
@@ -41,8 +41,8 @@ public final class RigidAlarmCheckTest {
         assertThat(context.allIssues()).hasSize(1);
         Optional<Issue> issue = context.allIssues().stream().findFirst();
         issue.ifPresent(i -> {
-            assertThat(i.ruleKey().rule()).isEqualTo("EC509");
-            assertThat(i.ruleKey().repository()).isEqualTo("ecoCode-swift");
+            assertThat(i.ruleKey().rule()).isEqualTo("GCI509");
+            assertThat(i.ruleKey().repository()).isEqualTo("creedengo-swift");
             IssueLocation location = i.primaryLocation();
             assertThat(location.textRange().start().line()).isEqualTo(11);
         });

@@ -17,8 +17,8 @@
  */
 package org.greencodeinitiative.creedengo.ios;
 
-import org.greencodeinitiative.creedengo.ios.swift.EcoCodeSwiftProfile;
-import org.greencodeinitiative.creedengo.ios.swift.EcoCodeSwiftRulesDefinition;
+import org.greencodeinitiative.creedengo.ios.swift.CreedengoSwiftProfile;
+import org.greencodeinitiative.creedengo.ios.swift.CreedengoSwiftRulesDefinition;
 import org.greencodeinitiative.creedengo.ios.swift.SwiftSensor;
 import org.greencodeinitiative.creedengo.ios.pbxproj.PbxprojLanguage;
 import org.greencodeinitiative.creedengo.ios.pbxproj.CreedengoPbxprojQualityProfile;
@@ -28,12 +28,12 @@ import org.sonar.api.Plugin;
 import org.sonar.api.config.PropertyDefinition;
 import org.sonar.api.resources.Qualifiers;
 
-public class EcoCodeIOSPlugin implements Plugin  {
+public class CreedengoIOSPlugin implements Plugin  {
 
     @Override
     public void define(Context context) {
 
-        context.addExtensions(SwiftSensor.class, EcoCodeSwiftProfile.class, EcoCodeSwiftRulesDefinition.class);
+        context.addExtensions(SwiftSensor.class, CreedengoSwiftProfile.class, CreedengoSwiftRulesDefinition.class);
         context.addExtensions(
                 PropertyDefinition.builder("sonar.pbxproj.file.suffixes")
                         .name("File suffixes")

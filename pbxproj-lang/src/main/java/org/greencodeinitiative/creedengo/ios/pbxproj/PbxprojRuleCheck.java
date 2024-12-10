@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,14 +15,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+package org.greencodeinitiative.creedengo.ios.pbxproj;
 
-package io.ecocode.ios.pbxproj;
-
-import io.ecocode.ios.checks.RuleCheck;
+import org.greencodeinitiative.creedengo.ios.checks.RuleCheck;
 
 public abstract class PbxprojRuleCheck extends RuleCheck {
 
     protected PbxprojRuleCheck() {
-        this.repositoryKey = "ecoCode-pbxproj";
+        this.repositoryKey = "creedengo-pbxproj";
     }
 }
+

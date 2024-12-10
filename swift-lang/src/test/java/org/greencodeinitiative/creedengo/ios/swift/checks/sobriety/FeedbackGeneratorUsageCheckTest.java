@@ -1,6 +1,6 @@
 /*
- * ecoCode iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://www.ecocode.io/)
+ * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
+ * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,10 +15,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+package org.greencodeinitiative.creedengo.ios.swift.checks.sobriety;
 
-package io.ecocode.ios.swift.checks.sobriety;
-
-import io.ecocode.ios.swift.checks.CheckTestHelper;
+import org.greencodeinitiative.creedengo.ios.swift.checks.CheckTestHelper;
 import org.assertj.core.api.ObjectAssert;
 import org.junit.Test;
 import org.sonar.api.batch.fs.TextPointer;
@@ -39,9 +38,9 @@ public class FeedbackGeneratorUsageCheckTest {
         SensorContextTester context = CheckTestHelper.analyzeTestFile(TEST_CASE_FEEDBACK_GENERATOR_USE);
         ObjectAssert<Issue> issue = assertThat(context.allIssues()).hasSize(1)
                 .first();
-        issue.extracting(Issue::ruleKey).extracting(RuleKey::rule).isEqualTo("EC528");
+        issue.extracting(Issue::ruleKey).extracting(RuleKey::rule).isEqualTo("GCI528");
         issue.extracting(Issue::ruleKey).extracting(RuleKey::repository)
-                .isEqualTo("ecoCode-swift");
+                .isEqualTo("creedengo-swift");
         issue.extracting(Issue::primaryLocation)
                 .extracting(IssueLocation::textRange)
                 .extracting(TextRange::start)
