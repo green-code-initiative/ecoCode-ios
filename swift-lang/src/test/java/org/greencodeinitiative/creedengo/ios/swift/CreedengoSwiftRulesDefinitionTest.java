@@ -1,6 +1,6 @@
 /*
  * Creedengo iOS plugin - Help the earth, adopt this green plugin for your applications
- * Copyright © 2023 green-code-initiative (https://green-code-initiative.org/)
+ * Copyright © 2024 green-code-initiative (https://green-code-initiative.org/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
