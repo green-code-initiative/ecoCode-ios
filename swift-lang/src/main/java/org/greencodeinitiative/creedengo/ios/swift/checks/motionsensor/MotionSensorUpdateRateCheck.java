@@ -22,6 +22,7 @@ import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +30,7 @@ import java.util.List;
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.*;
 
 @Rule(key="GCI534")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC534")
 public class MotionSensorUpdateRateCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Set appropriate motion sensor update rates for the application's needs";
     private Swift5Parser.Import_declarationContext importTree = null;

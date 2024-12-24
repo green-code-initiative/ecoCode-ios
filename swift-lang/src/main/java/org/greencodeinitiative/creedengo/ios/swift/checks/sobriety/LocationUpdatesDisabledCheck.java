@@ -21,6 +21,7 @@ import org.greencodeinitiative.creedengo.ios.swift.SwiftRuleCheck;
 import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isExpressionPresent;
 
@@ -29,6 +30,7 @@ import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isE
  * Check the use of "CLLocationManager#pausesLocationUpdatesAutomatically" and triggers when set to false.
  */
 @Rule(key = "GCI533")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC533")
 public class LocationUpdatesDisabledCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Do not disable location updates pause, unless absolutely necessary";
     public static final String LOCATION_UPDATES_DISABLE_EXPRESSION = ".pausesLocationUpdatesAutomatically=false";

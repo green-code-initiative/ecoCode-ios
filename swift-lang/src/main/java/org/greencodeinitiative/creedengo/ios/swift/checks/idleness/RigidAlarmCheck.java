@@ -21,11 +21,13 @@ import org.greencodeinitiative.creedengo.ios.swift.SwiftRuleCheck;
 import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 /**
  * Check the presence of the class "Timer".
  */
 @Rule(key = "GCI509")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC509")
 public class RigidAlarmCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Setting a tolerance for timers will allow them to fire later than the scheduled fire date.";
 

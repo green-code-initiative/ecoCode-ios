@@ -22,10 +22,12 @@ import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.*;
 
 @Rule(key = "GCI524")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC524")
 public class ThriftyGeolocation extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Adapt location accuracy and type to applications needs.";
     private Swift5Parser.Import_declarationContext importTree = null;

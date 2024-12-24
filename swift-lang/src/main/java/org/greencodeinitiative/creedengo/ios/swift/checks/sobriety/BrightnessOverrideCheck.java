@@ -21,6 +21,7 @@ import org.greencodeinitiative.creedengo.ios.swift.SwiftRuleCheck;
 import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isExpressionPresent;
 
@@ -28,6 +29,7 @@ import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isE
  * Check the use of "UIScreen.main.brightness" and triggers when set.
  */
 @Rule(key = "GCI522")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC522")
 public class BrightnessOverrideCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Do not force Brightness in your code, unless absolutely necessary";
     @Override

@@ -21,12 +21,14 @@ import org.greencodeinitiative.creedengo.ios.swift.SwiftRuleCheck;
 import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isEndOfFile;
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isFunctionCalled;
 
 
 @Rule(key = "GCI513")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC513")
 public class LocationLeakCheck extends SwiftRuleCheck {
     public static final String START_UPDATING_LOCATION_METHOD = "startUpdatingLocation";
     public static final String STOP_UPDATING_LOCATION_METHOD = "stopUpdatingLocation";

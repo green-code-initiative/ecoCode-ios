@@ -23,8 +23,10 @@ import org.greencodeinitiative.creedengo.ios.pbxproj.PbxprojRuleCheck;
 import org.greencodeinitiative.creedengo.ios.pbxproj.antlr.generated.PbxprojParser;
 
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 @Rule(key = "GCI547")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC547")
 public class DisabledDarkModeCheck extends PbxprojRuleCheck {
 
     private static final String DEFAULT_ISSUE_MESSAGE = "The app should handle dark mode.";

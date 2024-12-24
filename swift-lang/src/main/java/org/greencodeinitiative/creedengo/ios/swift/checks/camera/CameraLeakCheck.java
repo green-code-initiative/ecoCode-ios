@@ -22,11 +22,13 @@ import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isEndOfFile;
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isExpressionPresent;
 
 @Rule(key = "GCI512")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC512")
 public class CameraLeakCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Any started capture session should be stopped.";
     private boolean captureSessionStarted = false;

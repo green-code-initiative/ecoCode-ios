@@ -21,6 +21,7 @@ import org.greencodeinitiative.creedengo.ios.swift.SwiftRuleCheck;
 import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isExpressionPresent;
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isFunctionCalled;
@@ -29,6 +30,7 @@ import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isF
  * Check the use of "AVCaptureTorchMode.on", "setTorchModeOn(level: Float)", or "torchMode = .on" and triggers when set to true.
  */
 @Rule(key = "GCI530")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC530")
 public class TorchFreeCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Usage of `AVCaptureDevice#torchMode` or `AVCaptureDevice#setTorchModeOn(level:)` must absolutely be avoided";
 

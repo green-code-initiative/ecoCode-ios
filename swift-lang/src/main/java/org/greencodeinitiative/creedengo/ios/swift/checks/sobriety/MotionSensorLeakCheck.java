@@ -22,11 +22,13 @@ import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNodeImpl;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isEndOfFile;
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isFunctionCalled;
 
 @Rule(key = "GCI514")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC514")
 public class MotionSensorLeakCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Any motion sensor started should be stopped.";
     private boolean motionSensorStarted = false;

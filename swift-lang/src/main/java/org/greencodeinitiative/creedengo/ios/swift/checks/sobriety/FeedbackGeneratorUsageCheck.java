@@ -21,12 +21,14 @@ import org.greencodeinitiative.creedengo.ios.swift.SwiftRuleCheck;
 import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import java.util.Objects;
 
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.*;
 
 @Rule(key = "GCI528")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC528")
 public class FeedbackGeneratorUsageCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Avoid using the device vibrator to use less energy.";
     public static final String UI_KIT = "UIKit";

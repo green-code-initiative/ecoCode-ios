@@ -21,6 +21,7 @@ import org.greencodeinitiative.creedengo.ios.swift.SwiftRuleCheck;
 import org.greencodeinitiative.creedengo.ios.swift.antlr.generated.Swift5Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.sonar.check.Rule;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isExpressionPresent;
 
@@ -28,6 +29,7 @@ import static org.greencodeinitiative.creedengo.ios.swift.checks.CheckHelper.isE
  * Check the use of "UIApplication.shared.isIdleTimerDisabled" and triggers when set to true.
  */
 @Rule(key = "GCI505")
+@DeprecatedRuleKey(repositoryKey = "ecocode-ios", ruleKey = "EC505")
 public class IdleTimerDisabledCheck extends SwiftRuleCheck {
     private static final String DEFAULT_ISSUE_MESSAGE = "Do not disable idle timer, unless absolutely necessary.";
 
