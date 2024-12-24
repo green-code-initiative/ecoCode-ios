@@ -68,7 +68,7 @@
         <jacoco.version>0.8.11</jacoco.version>
 
         <!-- Temporary version waiting for real automatic release in creedengo repository -->
-        <creedengo-rules-specifications.version>1.0.0</creedengo-rules-specifications.version>
+        <creedengo-rules-specifications.version>2.0.0</creedengo-rules-specifications.version>
 
     </properties>
 
