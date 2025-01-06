@@ -23,8 +23,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-
 public class PbxprojLanguageTest {
     private PbxprojLanguage sut;
 
@@ -51,6 +49,7 @@ public class PbxprojLanguageTest {
         String[] fileSuffixes = sut.getFileSuffixes();
         // THEN
         String[] expectedFileSuffixes = { "pbxproj" };
-        assertEquals(expectedFileSuffixes, fileSuffixes);
+        assertEquals(expectedFileSuffixes.length, fileSuffixes.length);
+        assertEquals(expectedFileSuffixes[0], fileSuffixes[0]);
     }
 }

@@ -39,21 +39,15 @@ import org.greencodeinitiative.creedengo.ios.pbxproj.antlr.PbxprojAntlrContext;
 public class PbxprojSensorExecutorTest {
 
     private PbxprojSensorExecutor sut;
-    private RuleLoader<PbxprojRuleCheck> mockRuleLoader;
-    private ParseTreeAnalyzerFactory mockAnalyzerFactory;
     private ParseTreeAnalyzer mockAnalyzer;
-    private CreedengoPbxprojVisitor mockVisitor;
-    private SensorContext mockSensorContext;
     private SensorDescriptor mockSensorDescriptor;
 
     @Before
     public void setUp() {
         // Mocking dependencies
-        mockRuleLoader = mock(RuleLoader.class);
-        mockAnalyzerFactory = mock(ParseTreeAnalyzerFactory.class);
+        RuleLoader<PbxprojRuleCheck> mockRuleLoader = mock(RuleLoader.class);
+        ParseTreeAnalyzerFactory mockAnalyzerFactory = mock(ParseTreeAnalyzerFactory.class);
         mockAnalyzer = mock(ParseTreeAnalyzer.class);
-        mockVisitor = mock(CreedengoPbxprojVisitor.class);
-        mockSensorContext = mock(SensorContext.class);
         mockSensorDescriptor = mock(SensorDescriptor.class);
 
         // Mock behavior for factory

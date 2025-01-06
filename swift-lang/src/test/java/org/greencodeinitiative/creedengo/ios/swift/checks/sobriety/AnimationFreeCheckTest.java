@@ -28,11 +28,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class AnimationFreeCheckTest {
 
-//    @Test
-//     public void shouldTriggerOnAnyTransition() {
-//         assertAnimationFreeIssue("checks/sobriety/AnimationFreeCheck_AnyTransition_trigger.swift", 11);
-//     }
-
     @Test
     public void shouldTriggerOnCAKeyframeAnimation() {
         assertAnimationFreeIssue("checks/sobriety/AnimationFreeCheck_CAKeyframeAnimation_trigger.swift", 11);

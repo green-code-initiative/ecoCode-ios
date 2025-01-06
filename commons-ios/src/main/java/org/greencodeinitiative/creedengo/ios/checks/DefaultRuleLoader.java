@@ -30,7 +30,7 @@ import org.greencodeinitiative.creedengo.ios.antlr.ParseTreeItemVisitor;
 public class DefaultRuleLoader<T extends RuleCheck> implements RuleLoader<T> {
     private final Class<T> ruleClass;
     private final Reflections reflections;
-    private static final Logger LOGGER = Loggers.get(ParseTreeItemVisitor.class);
+    private static final Logger LOGGER = Loggers.get(DefaultRuleLoader.class);
 
     public DefaultRuleLoader(Class<T> ruleClass, Reflections reflections) {
         this.ruleClass = ruleClass;

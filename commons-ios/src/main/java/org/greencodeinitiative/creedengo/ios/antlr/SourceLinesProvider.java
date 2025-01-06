@@ -37,8 +37,9 @@ public class SourceLinesProvider {
         }
         final List<SourceLine> sourceLines = new ArrayList<>();
 
+
         try (final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(new BOMInputStream(inputStream, false), charset))) {
+                new InputStreamReader(BOMInputStream.builder().setInputStream(inputStream).setInclude(false).setCharset(charset).get()))) {
             int totalLines = 1;
             int global = 0;
             int count = 0;

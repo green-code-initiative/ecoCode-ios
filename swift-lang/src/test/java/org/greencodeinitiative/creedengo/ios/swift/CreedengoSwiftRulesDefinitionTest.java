@@ -82,8 +82,8 @@ public class CreedengoSwiftRulesDefinitionTest {
         RulesDefinition.Context context = new RulesDefinition.Context();
         CreedengoSwiftRulesDefinition rulesDefinition = new CreedengoSwiftRulesDefinition(mock(SonarRuntime.class));
         rulesDefinition.define(context);
-        RulesDefinition.Repository repository = context.repository(rulesDefinition.repositoryKey());
-        assertThat(repository).isNotNull();
+        RulesDefinition.Repository repo = context.repository(rulesDefinition.repositoryKey());
+        assertThat(repo).isNotNull();
     }
 
 }
