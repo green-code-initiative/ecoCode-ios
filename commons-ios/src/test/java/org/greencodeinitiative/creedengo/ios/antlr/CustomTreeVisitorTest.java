@@ -53,7 +53,9 @@ public class CustomTreeVisitorTest {
     @Test
     public void visit_ShouldCallApplyOnAllVisitors() {
         // GIVEN
-        when(mockParseTree.getChildCount()).thenReturn(0);
+        ParseTree child1 = mock(ParseTree.class);
+        when(mockParseTree.getChildCount()).thenReturn(1);
+        when(mockParseTree.getChild(0)).thenReturn(child1);
 
         // WHEN
         sut.visit(mockParseTree);

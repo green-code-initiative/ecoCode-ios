@@ -25,8 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.greencodeinitiative.creedengo.ios.antlr.ParseTreeItemVisitor;
-
 public class DefaultRuleLoader<T extends RuleCheck> implements RuleLoader<T> {
     private final Class<T> ruleClass;
     private final Reflections reflections;

@@ -29,7 +29,6 @@ import org.greencodeinitiative.creedengo.ios.antlr.ParseTreeItemVisitor;
 import org.greencodeinitiative.creedengo.ios.checks.RuleLoader;
 
 public class CreedengoPbxprojVisitor implements ParseTreeItemVisitor {
-    private static final Logger LOGGER = Loggers.get(CreedengoPbxprojVisitor.class);
 
     private final List<PbxprojRuleCheck> checks;
 

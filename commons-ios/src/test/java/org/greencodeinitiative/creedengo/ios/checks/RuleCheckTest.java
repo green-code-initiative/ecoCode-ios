@@ -56,6 +56,8 @@ public class RuleCheckTest {
         AntlrContext antlrContext = new AntlrContext() {
             @Override
             public void loadFromStreams(InputFile inputFile, InputStream file, InputStream linesStream, Charset charset) throws IOException {
+                // Not supported
+                throw new UnsupportedOperationException();
             }
 
             @Override

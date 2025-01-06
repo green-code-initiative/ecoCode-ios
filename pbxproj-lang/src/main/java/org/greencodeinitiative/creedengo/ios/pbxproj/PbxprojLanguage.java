@@ -30,6 +30,6 @@ public class PbxprojLanguage extends AbstractLanguage {
     }
     @Override
     public String[] getFileSuffixes() {
-        return new String[] { "pbxproj" };
+        return new String[] { KEY };
     }
 }

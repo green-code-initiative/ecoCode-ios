@@ -34,16 +34,14 @@ import org.sonar.api.utils.Version;
 
 public class CreedengoPbxprojRulesDefinitionTest {
 
-    private CreedengoPbxprojRulesDefinition sut;
-    private RulesDefinition.Context context;
     private RulesDefinition.Repository repository;
 
     @Before
     public void setUp() {
         final SonarRuntime sonarRuntime = mock(SonarRuntime.class);
         doReturn(Version.create(0, 0)).when(sonarRuntime).getApiVersion();
-        sut = new CreedengoPbxprojRulesDefinition(sonarRuntime);
-        context = new RulesDefinition.Context();
+        CreedengoPbxprojRulesDefinition sut = new CreedengoPbxprojRulesDefinition(sonarRuntime);
+        RulesDefinition.Context context = new RulesDefinition.Context();
         sut.define(context);
         repository = context.repository(sut.repositoryKey());
     }
@@ -53,8 +51,8 @@ public class CreedengoPbxprojRulesDefinitionTest {
         RulesDefinition.Context context = new RulesDefinition.Context();
         CreedengoPbxprojRulesDefinition rulesDefinition = new CreedengoPbxprojRulesDefinition(mock(SonarRuntime.class));
         rulesDefinition.define(context);
-        RulesDefinition.Repository repository = context.repository(rulesDefinition.repositoryKey());
-        assertNotNull(repository);
+        RulesDefinition.Repository repo = context.repository(rulesDefinition.repositoryKey());
+        assertNotNull(repo);
     }
 
     @Test
