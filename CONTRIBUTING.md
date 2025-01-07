@@ -16,7 +16,7 @@ The iOS plugin is split into 3 different modules:
 
 Swift file parser is build using the [ANTLR](https://www.antlr.org/) parser generator.
 
-The generated parser source files are located into `swift-lang/src/main/java/io/ecocode/ios/swift/antlr/generated`. Those source files should not be edited manually. 
+The generated parser source files are located into `swift-lang/src/main/java/org/greencodeinitiative/creedengo/ios/swift/antlr/generated`. Those source files should not be edited manually. 
 
 When necessary (in case of Swift language syntax upgrade for example), those source files should be re-generated with ANTLR.
 
@@ -30,14 +30,14 @@ When adding a new rule, the following steps are required:
 
 ### Declaring the rule
 
-The new rule must be declared in `swift-lang/src/resources/ecocode_swift_profile.json`
+The new rule must be declared in `swift-lang/src/resources/creedengo_swift_profile.json`
 
-> Note: in case the new rule is not available in https://github.com/green-code-initiative/ecoCode/tree/main/ecocode-rules-specifications yet create a matching <RULE_ID>.json ans <RULE_ID>.html in `swift-lang/src/resources/io/ecocode/rules/swift/` to provide rule metadata.
+> Note: in case the new rule is not available in https://github.com/green-code-initiative/creedengo/tree/main/creedengo-rules-specifications yet create a matching <RULE_ID>.json ans <RULE_ID>.html in `swift-lang/src/resources/io/creedengo/rules/swift/` to provide rule metadata.
 
 ### Implementing a check
 
-In order to implement a check for the rule, create a Check class inherited from `SwiftRuleCheck` in `src/main/java/io/ecocode/ios/swift/checks`.
+In order to implement a check for the rule, create a Check class inherited from `SwiftRuleCheck` in `src/main/java/org/greencodeinitiative/creedengo/ios/swift/checks`.
 
-Have a look at `swift-lang/src/main/java/io/ecocode/ios/swift/checks/idleness/IdleTimerDisabledCheck` to learn more about the implementation.
+    Have a look at `swift-lang/src/main/java/org/greencodeinitiative/creedengo/ios/swift/checks/idleness/IdleTimerDisabledCheck` to learn more about the implementation.
 
 Don't forget to add the `@org.sonar.check.Rule` annotation to the check in order to register it to the AST visitor.

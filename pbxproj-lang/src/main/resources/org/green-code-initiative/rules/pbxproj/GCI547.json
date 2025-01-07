@@ -1,0 +1,18 @@
+{
+  "key": "GCI547",
+  "title": "Light Mode Forced",
+  "defaultSeverity": "Major",
+  "description": "Dark mode is disabled across the entire app. Handling dark mode could help preserve battery life.",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant/Issue",
+    "constantCost": "5min"
+  },
+  "tags": [
+    "creendengo",
+    "environment",
+    "sobriety",
+    "eco-design"
+  ],
+  "type": "CODE_SMELL"
+}
