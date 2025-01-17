@@ -26,8 +26,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#37](https://github.com/green-code-initiative/creedengo-ios/issues/37) Renaming to Creedengo
 - [#39](https://github.com/green-code-initiative/creedengo-ios/pull/39) technical upgrade on docker system
 
-### Deleted
-
 ## [1.1.0]
 
 ### Changed
@@ -35,6 +33,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Extracted iOS plugin from https://github.com/green-code-initiative/creedengo-mobile to new repository (https://github.com/green-code-initiative/creedengo-ios)
 - [#11](https://github.com/green-code-initiative/creedengo-ios/pull/11) License and source headers update (LGPL v3 to GPL v3)
 
-[unreleased]: https://github.com/green-code-initiative/creedengo-ios/compare/v1.0.1...HEAD
-
-[1.0.1]: https://github.com/green-code-initiative/creedengo/releases/tag/v1.0.1
+[unreleased](https://github.com/green-code-initiative/creedengo-ios/compare/2.0.0...HEAD)
+[2.0.0](https://github.com/green-code-initiative/creedengo-ios/compare/1.1.0...2.0.0)
+[1.1.0](https://github.com/green-code-initiative/creedengo-ios/releases/tag/1.1.0)
