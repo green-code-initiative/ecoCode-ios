@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.green-code-initiative</groupId>
         <artifactId>creedengo-ios-plugin</artifactId>
-        <version>2.0.0</version>
+        <version>2.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>creedengo-sonar-ios-plugin</artifactId>
