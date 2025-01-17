@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [#23](https://github.com/green-code-initiative/creedengo-ios/pull/23) Docker update (updated SonarQube and sonar-apple versions)
 - [#37](https://github.com/green-code-initiative/creedengo-ios/issues/37) Renaming to Creedengo
+- [#39](https://github.com/green-code-initiative/creedengo-ios/pull/39) technical upgrade on docker system
 
 ### Deleted
 
