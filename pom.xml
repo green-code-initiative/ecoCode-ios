@@ -64,13 +64,36 @@
         <antlr.version>4.10</antlr.version>
         <mockito.version>4.4.0</mockito.version>
         <junit.version>4.13.2</junit.version>
-        <assertJ.version>3.23.1</assertJ.version>
+        <assertJ.version>3.24.2</assertJ.version>
         <jacoco.version>0.8.11</jacoco.version>
 
         <!-- Temporary version waiting for real automatic release in creedengo repository -->
         <creedengo-rules-specifications.version>2.0.0</creedengo-rules-specifications.version>
 
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-runtime</artifactId>
+                <version>${antlr.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>0.9.12</version>
+            </dependency>
+
+            <!-- Test dependencies -->
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertJ.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
 
@@ -106,13 +129,6 @@
             <version>${sonar.apacheCommons.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.antlr</groupId>
-            <artifactId>antlr4-runtime</artifactId>
-            <version>${antlr.version}</version>
-        </dependency>
-
-
         <!-- Test dependencies -->
         <dependency>
             <groupId>org.sonarsource.sonarqube</groupId>
@@ -135,7 +151,6 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>${assertJ.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -146,17 +161,6 @@
         </dependency>
 
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <version>3.24.2</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <plugins>
